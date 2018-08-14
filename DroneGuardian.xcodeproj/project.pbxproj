@@ -7,13 +7,34 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2CB17A1EDA3D9D10304BC0B6 /* Pods_DroneGuardianUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DFDA94530F4F05A5EBC72E1B /* Pods_DroneGuardianUITests.framework */; };
+		985C6A58210A2C940015D610 /* FireStorageImageUpload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 985C6A57210A2C940015D610 /* FireStorageImageUpload.swift */; };
+		9861CA3F2111C62700F3EE01 /* AnnotationPin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9861CA3E2111C62700F3EE01 /* AnnotationPin.swift */; };
+		989C1397211918DE000E324E /* TermsAndConditionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 989C1396211918DE000E324E /* TermsAndConditionsViewController.swift */; };
+		989C139921191C60000E324E /* PrivacyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 989C139821191C60000E324E /* PrivacyViewController.swift */; };
+		989C139F211CC2B4000E324E /* DroneListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 989C139E211CC2B4000E324E /* DroneListViewController.swift */; };
 		98C1CF5F21078327009A5311 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98C1CF5E21078327009A5311 /* AppDelegate.swift */; };
-		98C1CF6121078327009A5311 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98C1CF6021078327009A5311 /* ViewController.swift */; };
-		98C1CF6421078327009A5311 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 98C1CF6221078327009A5311 /* Main.storyboard */; };
 		98C1CF6621078328009A5311 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 98C1CF6521078328009A5311 /* Assets.xcassets */; };
 		98C1CF6921078328009A5311 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 98C1CF6721078328009A5311 /* LaunchScreen.storyboard */; };
 		98C1CF7421078329009A5311 /* DroneGuardianTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98C1CF7321078329009A5311 /* DroneGuardianTests.swift */; };
 		98C1CF7F21078329009A5311 /* DroneGuardianUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98C1CF7E21078329009A5311 /* DroneGuardianUITests.swift */; };
+		98C1CF8F2107A340009A5311 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 98C1CF8E2107A340009A5311 /* Main.storyboard */; };
+		98C1CF912107A6DE009A5311 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98C1CF902107A6DE009A5311 /* HomeViewController.swift */; };
+		98C1CF932107A74D009A5311 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98C1CF922107A74D009A5311 /* LoginViewController.swift */; };
+		98C1CF952107C8BB009A5311 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98C1CF942107C8BB009A5311 /* ProfileViewController.swift */; };
+		98C1CF972107DCA5009A5311 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98C1CF962107DCA5009A5311 /* MapViewController.swift */; };
+		98CB42822113D1D50035B94C /* DroneLivestreamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98CB42812113D1D50035B94C /* DroneLivestreamViewController.swift */; };
+		98CB42842113D7F80035B94C /* StreamSetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98CB42832113D7F80035B94C /* StreamSetupViewController.swift */; };
+		98D838D221163BEA00BD7BD8 /* DronePilotCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98D838D121163BEA00BD7BD8 /* DronePilotCell.swift */; };
+		98D838D42117292400BD7BD8 /* MissionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98D838D32117292400BD7BD8 /* MissionViewController.swift */; };
+		98D838D621172E0000BD7BD8 /* Missions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98D838D521172E0000BD7BD8 /* Missions.swift */; };
+		98D838D82117380E00BD7BD8 /* SelectedMissionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98D838D72117380E00BD7BD8 /* SelectedMissionViewController.swift */; };
+		98ED2ADC210872190080A5DA /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98ED2ADB210872190080A5DA /* SignUpViewController.swift */; };
+		98ED2ADE210873260080A5DA /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98ED2ADD210873260080A5DA /* User.swift */; };
+		98ED2AE1210882600080A5DA /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98ED2AE0210882600080A5DA /* DataService.swift */; };
+		98ED2AE32109BD250080A5DA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 98ED2AE22109BD250080A5DA /* GoogleService-Info.plist */; };
+		E837BD3884AB809A60FC4CFA /* Pods_DroneGuardianTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81D8E189F0241D50A853EC7E /* Pods_DroneGuardianTests.framework */; };
+		ED906FA2831E337A77EB1149 /* Pods_DroneGuardian.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B08A2AB89DEC9914A659E34B /* Pods_DroneGuardian.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,10 +55,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		090803269C14AD0D7AF3F470 /* Pods-DroneGuardianUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DroneGuardianUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-DroneGuardianUITests/Pods-DroneGuardianUITests.release.xcconfig"; sourceTree = "<group>"; };
+		61BD4B626D8A774E302B2397 /* Pods-DroneGuardianTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DroneGuardianTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-DroneGuardianTests/Pods-DroneGuardianTests.release.xcconfig"; sourceTree = "<group>"; };
+		81D8E189F0241D50A853EC7E /* Pods_DroneGuardianTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DroneGuardianTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9355E660348B174ADBB4FC33 /* Pods-DroneGuardianUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DroneGuardianUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DroneGuardianUITests/Pods-DroneGuardianUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		985C6A57210A2C940015D610 /* FireStorageImageUpload.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireStorageImageUpload.swift; sourceTree = "<group>"; };
+		9861CA3E2111C62700F3EE01 /* AnnotationPin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnotationPin.swift; sourceTree = "<group>"; };
+		989C1396211918DE000E324E /* TermsAndConditionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsAndConditionsViewController.swift; sourceTree = "<group>"; };
+		989C139821191C60000E324E /* PrivacyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyViewController.swift; sourceTree = "<group>"; };
+		989C139E211CC2B4000E324E /* DroneListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DroneListViewController.swift; sourceTree = "<group>"; };
 		98C1CF5B21078327009A5311 /* DroneGuardian.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DroneGuardian.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		98C1CF5E21078327009A5311 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		98C1CF6021078327009A5311 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		98C1CF6321078327009A5311 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		98C1CF6521078328009A5311 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		98C1CF6821078328009A5311 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		98C1CF6A21078328009A5311 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -47,6 +75,26 @@
 		98C1CF7A21078329009A5311 /* DroneGuardianUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DroneGuardianUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		98C1CF7E21078329009A5311 /* DroneGuardianUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DroneGuardianUITests.swift; sourceTree = "<group>"; };
 		98C1CF8021078329009A5311 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		98C1CF8E2107A340009A5311 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		98C1CF902107A6DE009A5311 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		98C1CF922107A74D009A5311 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		98C1CF942107C8BB009A5311 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		98C1CF962107DCA5009A5311 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		98CB42812113D1D50035B94C /* DroneLivestreamViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DroneLivestreamViewController.swift; sourceTree = "<group>"; };
+		98CB42832113D7F80035B94C /* StreamSetupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamSetupViewController.swift; sourceTree = "<group>"; };
+		98D838D121163BEA00BD7BD8 /* DronePilotCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DronePilotCell.swift; sourceTree = "<group>"; };
+		98D838D32117292400BD7BD8 /* MissionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionViewController.swift; sourceTree = "<group>"; };
+		98D838D521172E0000BD7BD8 /* Missions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Missions.swift; sourceTree = "<group>"; };
+		98D838D72117380E00BD7BD8 /* SelectedMissionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedMissionViewController.swift; sourceTree = "<group>"; };
+		98ED2ADB210872190080A5DA /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		98ED2ADD210873260080A5DA /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		98ED2AE0210882600080A5DA /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
+		98ED2AE22109BD250080A5DA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		A1FEA7B972F7CED3A5B4CCEF /* Pods-DroneGuardian.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DroneGuardian.release.xcconfig"; path = "Pods/Target Support Files/Pods-DroneGuardian/Pods-DroneGuardian.release.xcconfig"; sourceTree = "<group>"; };
+		A622BFF3477B6138996DEB5C /* Pods-DroneGuardianTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DroneGuardianTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DroneGuardianTests/Pods-DroneGuardianTests.debug.xcconfig"; sourceTree = "<group>"; };
+		B08A2AB89DEC9914A659E34B /* Pods_DroneGuardian.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DroneGuardian.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DFDA94530F4F05A5EBC72E1B /* Pods_DroneGuardianUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DroneGuardianUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EEA8399CD3119619E1A5AB4D /* Pods-DroneGuardian.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DroneGuardian.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DroneGuardian/Pods-DroneGuardian.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +102,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ED906FA2831E337A77EB1149 /* Pods_DroneGuardian.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -61,6 +110,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E837BD3884AB809A60FC4CFA /* Pods_DroneGuardianTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -68,12 +118,36 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2CB17A1EDA3D9D10304BC0B6 /* Pods_DroneGuardianUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0833C07E118864242B17B3D1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B08A2AB89DEC9914A659E34B /* Pods_DroneGuardian.framework */,
+				81D8E189F0241D50A853EC7E /* Pods_DroneGuardianTests.framework */,
+				DFDA94530F4F05A5EBC72E1B /* Pods_DroneGuardianUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		2AF5B5563DDA3A9F368CF4ED /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				EEA8399CD3119619E1A5AB4D /* Pods-DroneGuardian.debug.xcconfig */,
+				A1FEA7B972F7CED3A5B4CCEF /* Pods-DroneGuardian.release.xcconfig */,
+				A622BFF3477B6138996DEB5C /* Pods-DroneGuardianTests.debug.xcconfig */,
+				61BD4B626D8A774E302B2397 /* Pods-DroneGuardianTests.release.xcconfig */,
+				9355E660348B174ADBB4FC33 /* Pods-DroneGuardianUITests.debug.xcconfig */,
+				090803269C14AD0D7AF3F470 /* Pods-DroneGuardianUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		98C1CF5221078327009A5311 = {
 			isa = PBXGroup;
 			children = (
@@ -81,6 +155,8 @@
 				98C1CF7221078329009A5311 /* DroneGuardianTests */,
 				98C1CF7D21078329009A5311 /* DroneGuardianUITests */,
 				98C1CF5C21078327009A5311 /* Products */,
+				2AF5B5563DDA3A9F368CF4ED /* Pods */,
+				0833C07E118864242B17B3D1 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -97,12 +173,29 @@
 		98C1CF5D21078327009A5311 /* DroneGuardian */ = {
 			isa = PBXGroup;
 			children = (
+				98ED2ADF210876C70080A5DA /* Services */,
 				98C1CF5E21078327009A5311 /* AppDelegate.swift */,
-				98C1CF6021078327009A5311 /* ViewController.swift */,
-				98C1CF6221078327009A5311 /* Main.storyboard */,
+				98C1CF902107A6DE009A5311 /* HomeViewController.swift */,
+				98C1CF922107A74D009A5311 /* LoginViewController.swift */,
+				98C1CF8E2107A340009A5311 /* Main.storyboard */,
 				98C1CF6521078328009A5311 /* Assets.xcassets */,
 				98C1CF6721078328009A5311 /* LaunchScreen.storyboard */,
 				98C1CF6A21078328009A5311 /* Info.plist */,
+				98ED2AE22109BD250080A5DA /* GoogleService-Info.plist */,
+				98C1CF942107C8BB009A5311 /* ProfileViewController.swift */,
+				98C1CF962107DCA5009A5311 /* MapViewController.swift */,
+				98ED2ADB210872190080A5DA /* SignUpViewController.swift */,
+				98ED2ADD210873260080A5DA /* User.swift */,
+				9861CA3E2111C62700F3EE01 /* AnnotationPin.swift */,
+				98CB42812113D1D50035B94C /* DroneLivestreamViewController.swift */,
+				98CB42832113D7F80035B94C /* StreamSetupViewController.swift */,
+				98D838D121163BEA00BD7BD8 /* DronePilotCell.swift */,
+				98D838D32117292400BD7BD8 /* MissionViewController.swift */,
+				98D838D521172E0000BD7BD8 /* Missions.swift */,
+				98D838D72117380E00BD7BD8 /* SelectedMissionViewController.swift */,
+				989C1396211918DE000E324E /* TermsAndConditionsViewController.swift */,
+				989C139821191C60000E324E /* PrivacyViewController.swift */,
+				989C139E211CC2B4000E324E /* DroneListViewController.swift */,
 			);
 			path = DroneGuardian;
 			sourceTree = "<group>";
@@ -125,6 +218,15 @@
 			path = DroneGuardianUITests;
 			sourceTree = "<group>";
 		};
+		98ED2ADF210876C70080A5DA /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				98ED2AE0210882600080A5DA /* DataService.swift */,
+				985C6A57210A2C940015D610 /* FireStorageImageUpload.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -132,9 +234,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 98C1CF8321078329009A5311 /* Build configuration list for PBXNativeTarget "DroneGuardian" */;
 			buildPhases = (
+				3F86944BF9E0C7E0C1ECA65F /* [CP] Check Pods Manifest.lock */,
 				98C1CF5721078327009A5311 /* Sources */,
 				98C1CF5821078327009A5311 /* Frameworks */,
 				98C1CF5921078327009A5311 /* Resources */,
+				57AA05F1CBDA6C2C7D74D69B /* [CP] Embed Pods Frameworks */,
+				7D519D10D514BD3407D08E33 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -149,6 +254,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 98C1CF8621078329009A5311 /* Build configuration list for PBXNativeTarget "DroneGuardianTests" */;
 			buildPhases = (
+				AA8F9CF038798B24D00BF84A /* [CP] Check Pods Manifest.lock */,
 				98C1CF6B21078329009A5311 /* Sources */,
 				98C1CF6C21078329009A5311 /* Frameworks */,
 				98C1CF6D21078329009A5311 /* Resources */,
@@ -167,6 +273,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 98C1CF8921078329009A5311 /* Build configuration list for PBXNativeTarget "DroneGuardianUITests" */;
 			buildPhases = (
+				B9CF00E4C44FC52BACA73B5E /* [CP] Check Pods Manifest.lock */,
 				98C1CF7621078329009A5311 /* Sources */,
 				98C1CF7721078329009A5311 /* Frameworks */,
 				98C1CF7821078329009A5311 /* Resources */,
@@ -229,9 +336,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				98C1CF8F2107A340009A5311 /* Main.storyboard in Resources */,
 				98C1CF6921078328009A5311 /* LaunchScreen.storyboard in Resources */,
 				98C1CF6621078328009A5311 /* Assets.xcassets in Resources */,
-				98C1CF6421078327009A5311 /* Main.storyboard in Resources */,
+				98ED2AE32109BD250080A5DA /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -251,13 +359,153 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		3F86944BF9E0C7E0C1ECA65F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-DroneGuardian-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		57AA05F1CBDA6C2C7D74D69B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-DroneGuardian/Pods-DroneGuardian-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/BoringSSL/openssl.framework",
+				"${BUILT_PRODUCTS_DIR}/Braintree/Braintree.framework",
+				"${BUILT_PRODUCTS_DIR}/BraintreeDropIn/BraintreeDropIn.framework",
+				"${BUILT_PRODUCTS_DIR}/ExpandableCell/ExpandableCell.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/M13Checkbox/M13Checkbox.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/YouTubePlayer/YouTubePlayer.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC/GRPCClient.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-ProtoRPC/ProtoRPC.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-RxLibrary/RxLibrary.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Braintree.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BraintreeDropIn.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ExpandableCell.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/M13Checkbox.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/YouTubePlayer.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GRPCClient.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ProtoRPC.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxLibrary.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DroneGuardian/Pods-DroneGuardian-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7D519D10D514BD3407D08E33 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-DroneGuardian/Pods-DroneGuardian-resources.sh",
+				"${PODS_ROOT}/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle",
+				"${PODS_ROOT}/GooglePlaces/Frameworks/GooglePlaces.framework/Resources/GooglePlaces.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleMaps.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GooglePlaces.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DroneGuardian/Pods-DroneGuardian-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AA8F9CF038798B24D00BF84A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-DroneGuardianTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B9CF00E4C44FC52BACA73B5E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-DroneGuardianUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		98C1CF5721078327009A5311 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				98C1CF6121078327009A5311 /* ViewController.swift in Sources */,
+				98ED2ADC210872190080A5DA /* SignUpViewController.swift in Sources */,
+				98C1CF932107A74D009A5311 /* LoginViewController.swift in Sources */,
+				98CB42842113D7F80035B94C /* StreamSetupViewController.swift in Sources */,
 				98C1CF5F21078327009A5311 /* AppDelegate.swift in Sources */,
+				98C1CF952107C8BB009A5311 /* ProfileViewController.swift in Sources */,
+				989C139921191C60000E324E /* PrivacyViewController.swift in Sources */,
+				98C1CF972107DCA5009A5311 /* MapViewController.swift in Sources */,
+				98CB42822113D1D50035B94C /* DroneLivestreamViewController.swift in Sources */,
+				98C1CF912107A6DE009A5311 /* HomeViewController.swift in Sources */,
+				98D838D82117380E00BD7BD8 /* SelectedMissionViewController.swift in Sources */,
+				9861CA3F2111C62700F3EE01 /* AnnotationPin.swift in Sources */,
+				989C139F211CC2B4000E324E /* DroneListViewController.swift in Sources */,
+				98ED2ADE210873260080A5DA /* User.swift in Sources */,
+				985C6A58210A2C940015D610 /* FireStorageImageUpload.swift in Sources */,
+				98D838D42117292400BD7BD8 /* MissionViewController.swift in Sources */,
+				98D838D621172E0000BD7BD8 /* Missions.swift in Sources */,
+				989C1397211918DE000E324E /* TermsAndConditionsViewController.swift in Sources */,
+				98ED2AE1210882600080A5DA /* DataService.swift in Sources */,
+				98D838D221163BEA00BD7BD8 /* DronePilotCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -293,14 +541,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		98C1CF6221078327009A5311 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				98C1CF6321078327009A5311 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		98C1CF6721078328009A5311 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -428,11 +668,13 @@
 		};
 		98C1CF8421078329009A5311 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EEA8399CD3119619E1A5AB4D /* Pods-DroneGuardian.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = UNZ8Q3YU3G;
 				INFOPLIST_FILE = DroneGuardian/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -446,11 +688,13 @@
 		};
 		98C1CF8521078329009A5311 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A1FEA7B972F7CED3A5B4CCEF /* Pods-DroneGuardian.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = UNZ8Q3YU3G;
 				INFOPLIST_FILE = DroneGuardian/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -464,6 +708,7 @@
 		};
 		98C1CF8721078329009A5311 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A622BFF3477B6138996DEB5C /* Pods-DroneGuardianTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -485,6 +730,7 @@
 		};
 		98C1CF8821078329009A5311 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 61BD4B626D8A774E302B2397 /* Pods-DroneGuardianTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -506,6 +752,7 @@
 		};
 		98C1CF8A21078329009A5311 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9355E660348B174ADBB4FC33 /* Pods-DroneGuardianUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -526,6 +773,7 @@
 		};
 		98C1CF8B21078329009A5311 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 090803269C14AD0D7AF3F470 /* Pods-DroneGuardianUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
