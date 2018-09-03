@@ -8,11 +8,17 @@
 
 /* Begin PBXBuildFile section */
 		2CB17A1EDA3D9D10304BC0B6 /* Pods_DroneGuardianUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DFDA94530F4F05A5EBC72E1B /* Pods_DroneGuardianUITests.framework */; };
+		9829F1972123A8C600B5D286 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9829F1962123A8C600B5D286 /* StoreKit.framework */; };
+		9829F1992124E98C00B5D286 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9829F1982124E98C00B5D286 /* WelcomeViewController.swift */; };
 		985C6A58210A2C940015D610 /* FireStorageImageUpload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 985C6A57210A2C940015D610 /* FireStorageImageUpload.swift */; };
 		9861CA3F2111C62700F3EE01 /* AnnotationPin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9861CA3E2111C62700F3EE01 /* AnnotationPin.swift */; };
+		989ACC132135088F0000B32D /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 989ACC122135088F0000B32D /* ResetPasswordViewController.swift */; };
+		989ACC152135B7310000B32D /* LicenseListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 989ACC142135B7310000B32D /* LicenseListTableViewController.swift */; };
 		989C1397211918DE000E324E /* TermsAndConditionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 989C1396211918DE000E324E /* TermsAndConditionsViewController.swift */; };
 		989C139921191C60000E324E /* PrivacyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 989C139821191C60000E324E /* PrivacyViewController.swift */; };
 		989C139F211CC2B4000E324E /* DroneListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 989C139E211CC2B4000E324E /* DroneListViewController.swift */; };
+		98A427EB2139FC0700278343 /* MissionSetupCompleteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98A427EA2139FC0700278343 /* MissionSetupCompleteViewController.swift */; };
+		98A427ED2139FEE800278343 /* Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98A427EC2139FEE800278343 /* Animation.swift */; };
 		98C1CF5F21078327009A5311 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98C1CF5E21078327009A5311 /* AppDelegate.swift */; };
 		98C1CF6621078328009A5311 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 98C1CF6521078328009A5311 /* Assets.xcassets */; };
 		98C1CF6921078328009A5311 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 98C1CF6721078328009A5311 /* LaunchScreen.storyboard */; };
@@ -25,6 +31,7 @@
 		98C1CF972107DCA5009A5311 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98C1CF962107DCA5009A5311 /* MapViewController.swift */; };
 		98CB42822113D1D50035B94C /* DroneLivestreamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98CB42812113D1D50035B94C /* DroneLivestreamViewController.swift */; };
 		98CB42842113D7F80035B94C /* StreamSetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98CB42832113D7F80035B94C /* StreamSetupViewController.swift */; };
+		98CC1EC1213BB4DF0054BD32 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 98CC1EC0213BB4DE0054BD32 /* GoogleService-Info.plist */; };
 		98D838D221163BEA00BD7BD8 /* DronePilotCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98D838D121163BEA00BD7BD8 /* DronePilotCell.swift */; };
 		98D838D42117292400BD7BD8 /* MissionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98D838D32117292400BD7BD8 /* MissionViewController.swift */; };
 		98D838D621172E0000BD7BD8 /* Missions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98D838D521172E0000BD7BD8 /* Missions.swift */; };
@@ -32,7 +39,6 @@
 		98ED2ADC210872190080A5DA /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98ED2ADB210872190080A5DA /* SignUpViewController.swift */; };
 		98ED2ADE210873260080A5DA /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98ED2ADD210873260080A5DA /* User.swift */; };
 		98ED2AE1210882600080A5DA /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98ED2AE0210882600080A5DA /* DataService.swift */; };
-		98ED2AE32109BD250080A5DA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 98ED2AE22109BD250080A5DA /* GoogleService-Info.plist */; };
 		E837BD3884AB809A60FC4CFA /* Pods_DroneGuardianTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81D8E189F0241D50A853EC7E /* Pods_DroneGuardianTests.framework */; };
 		ED906FA2831E337A77EB1149 /* Pods_DroneGuardian.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B08A2AB89DEC9914A659E34B /* Pods_DroneGuardian.framework */; };
 /* End PBXBuildFile section */
@@ -59,11 +65,18 @@
 		61BD4B626D8A774E302B2397 /* Pods-DroneGuardianTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DroneGuardianTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-DroneGuardianTests/Pods-DroneGuardianTests.release.xcconfig"; sourceTree = "<group>"; };
 		81D8E189F0241D50A853EC7E /* Pods_DroneGuardianTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DroneGuardianTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9355E660348B174ADBB4FC33 /* Pods-DroneGuardianUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DroneGuardianUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DroneGuardianUITests/Pods-DroneGuardianUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		9829F1962123A8C600B5D286 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		9829F1982124E98C00B5D286 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		985C6A57210A2C940015D610 /* FireStorageImageUpload.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireStorageImageUpload.swift; sourceTree = "<group>"; };
 		9861CA3E2111C62700F3EE01 /* AnnotationPin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnotationPin.swift; sourceTree = "<group>"; };
+		989ACC122135088F0000B32D /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewController.swift; sourceTree = "<group>"; };
+		989ACC142135B7310000B32D /* LicenseListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LicenseListTableViewController.swift; sourceTree = "<group>"; };
 		989C1396211918DE000E324E /* TermsAndConditionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsAndConditionsViewController.swift; sourceTree = "<group>"; };
 		989C139821191C60000E324E /* PrivacyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyViewController.swift; sourceTree = "<group>"; };
 		989C139E211CC2B4000E324E /* DroneListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DroneListViewController.swift; sourceTree = "<group>"; };
+		98A427EA2139FC0700278343 /* MissionSetupCompleteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionSetupCompleteViewController.swift; sourceTree = "<group>"; };
+		98A427EC2139FEE800278343 /* Animation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animation.swift; sourceTree = "<group>"; };
+		98B16ABC2129E63D0076AC40 /* DroneGuardian.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DroneGuardian.entitlements; sourceTree = "<group>"; };
 		98C1CF5B21078327009A5311 /* DroneGuardian.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DroneGuardian.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		98C1CF5E21078327009A5311 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		98C1CF6521078328009A5311 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -82,6 +95,7 @@
 		98C1CF962107DCA5009A5311 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		98CB42812113D1D50035B94C /* DroneLivestreamViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DroneLivestreamViewController.swift; sourceTree = "<group>"; };
 		98CB42832113D7F80035B94C /* StreamSetupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamSetupViewController.swift; sourceTree = "<group>"; };
+		98CC1EC0213BB4DE0054BD32 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		98D838D121163BEA00BD7BD8 /* DronePilotCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DronePilotCell.swift; sourceTree = "<group>"; };
 		98D838D32117292400BD7BD8 /* MissionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionViewController.swift; sourceTree = "<group>"; };
 		98D838D521172E0000BD7BD8 /* Missions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Missions.swift; sourceTree = "<group>"; };
@@ -89,7 +103,6 @@
 		98ED2ADB210872190080A5DA /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		98ED2ADD210873260080A5DA /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		98ED2AE0210882600080A5DA /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
-		98ED2AE22109BD250080A5DA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A1FEA7B972F7CED3A5B4CCEF /* Pods-DroneGuardian.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DroneGuardian.release.xcconfig"; path = "Pods/Target Support Files/Pods-DroneGuardian/Pods-DroneGuardian.release.xcconfig"; sourceTree = "<group>"; };
 		A622BFF3477B6138996DEB5C /* Pods-DroneGuardianTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DroneGuardianTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DroneGuardianTests/Pods-DroneGuardianTests.debug.xcconfig"; sourceTree = "<group>"; };
 		B08A2AB89DEC9914A659E34B /* Pods_DroneGuardian.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DroneGuardian.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -103,6 +116,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ED906FA2831E337A77EB1149 /* Pods_DroneGuardian.framework in Frameworks */,
+				9829F1972123A8C600B5D286 /* StoreKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -128,6 +142,7 @@
 		0833C07E118864242B17B3D1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9829F1962123A8C600B5D286 /* StoreKit.framework */,
 				B08A2AB89DEC9914A659E34B /* Pods_DroneGuardian.framework */,
 				81D8E189F0241D50A853EC7E /* Pods_DroneGuardianTests.framework */,
 				DFDA94530F4F05A5EBC72E1B /* Pods_DroneGuardianUITests.framework */,
@@ -173,6 +188,7 @@
 		98C1CF5D21078327009A5311 /* DroneGuardian */ = {
 			isa = PBXGroup;
 			children = (
+				98B16ABC2129E63D0076AC40 /* DroneGuardian.entitlements */,
 				98ED2ADF210876C70080A5DA /* Services */,
 				98C1CF5E21078327009A5311 /* AppDelegate.swift */,
 				98C1CF902107A6DE009A5311 /* HomeViewController.swift */,
@@ -181,7 +197,8 @@
 				98C1CF6521078328009A5311 /* Assets.xcassets */,
 				98C1CF6721078328009A5311 /* LaunchScreen.storyboard */,
 				98C1CF6A21078328009A5311 /* Info.plist */,
-				98ED2AE22109BD250080A5DA /* GoogleService-Info.plist */,
+				98CC1EC0213BB4DE0054BD32 /* GoogleService-Info.plist */,
+				98A427EA2139FC0700278343 /* MissionSetupCompleteViewController.swift */,
 				98C1CF942107C8BB009A5311 /* ProfileViewController.swift */,
 				98C1CF962107DCA5009A5311 /* MapViewController.swift */,
 				98ED2ADB210872190080A5DA /* SignUpViewController.swift */,
@@ -196,6 +213,10 @@
 				989C1396211918DE000E324E /* TermsAndConditionsViewController.swift */,
 				989C139821191C60000E324E /* PrivacyViewController.swift */,
 				989C139E211CC2B4000E324E /* DroneListViewController.swift */,
+				9829F1982124E98C00B5D286 /* WelcomeViewController.swift */,
+				989ACC122135088F0000B32D /* ResetPasswordViewController.swift */,
+				989ACC142135B7310000B32D /* LicenseListTableViewController.swift */,
+				98A427EC2139FEE800278343 /* Animation.swift */,
 			);
 			path = DroneGuardian;
 			sourceTree = "<group>";
@@ -300,6 +321,14 @@
 				TargetAttributes = {
 					98C1CF5A21078327009A5311 = {
 						CreatedOnToolsVersion = 9.4.1;
+						SystemCapabilities = {
+							com.apple.InAppPurchase = {
+								enabled = 1;
+							};
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 					98C1CF6E21078329009A5311 = {
 						CreatedOnToolsVersion = 9.4.1;
@@ -336,10 +365,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				98CC1EC1213BB4DF0054BD32 /* GoogleService-Info.plist in Resources */,
 				98C1CF8F2107A340009A5311 /* Main.storyboard in Resources */,
 				98C1CF6921078328009A5311 /* LaunchScreen.storyboard in Resources */,
 				98C1CF6621078328009A5311 /* Assets.xcassets in Resources */,
-				98ED2AE32109BD250080A5DA /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -391,8 +420,11 @@
 				"${BUILT_PRODUCTS_DIR}/ExpandableCell/ExpandableCell.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/GradientLoadingBar/GradientLoadingBar.framework",
 				"${BUILT_PRODUCTS_DIR}/M13Checkbox/M13Checkbox.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/SkeletonView/SkeletonView.framework",
+				"${BUILT_PRODUCTS_DIR}/UIEmptyState/UIEmptyState.framework",
 				"${BUILT_PRODUCTS_DIR}/YouTubePlayer/YouTubePlayer.framework",
 				"${BUILT_PRODUCTS_DIR}/gRPC/GRPCClient.framework",
 				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
@@ -409,8 +441,11 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ExpandableCell.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GradientLoadingBar.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/M13Checkbox.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SkeletonView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/UIEmptyState.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/YouTubePlayer.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GRPCClient.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
@@ -488,18 +523,23 @@
 			buildActionMask = 2147483647;
 			files = (
 				98ED2ADC210872190080A5DA /* SignUpViewController.swift in Sources */,
+				9829F1992124E98C00B5D286 /* WelcomeViewController.swift in Sources */,
 				98C1CF932107A74D009A5311 /* LoginViewController.swift in Sources */,
 				98CB42842113D7F80035B94C /* StreamSetupViewController.swift in Sources */,
 				98C1CF5F21078327009A5311 /* AppDelegate.swift in Sources */,
 				98C1CF952107C8BB009A5311 /* ProfileViewController.swift in Sources */,
+				989ACC132135088F0000B32D /* ResetPasswordViewController.swift in Sources */,
 				989C139921191C60000E324E /* PrivacyViewController.swift in Sources */,
 				98C1CF972107DCA5009A5311 /* MapViewController.swift in Sources */,
 				98CB42822113D1D50035B94C /* DroneLivestreamViewController.swift in Sources */,
+				98A427ED2139FEE800278343 /* Animation.swift in Sources */,
 				98C1CF912107A6DE009A5311 /* HomeViewController.swift in Sources */,
 				98D838D82117380E00BD7BD8 /* SelectedMissionViewController.swift in Sources */,
 				9861CA3F2111C62700F3EE01 /* AnnotationPin.swift in Sources */,
 				989C139F211CC2B4000E324E /* DroneListViewController.swift in Sources */,
+				98A427EB2139FC0700278343 /* MissionSetupCompleteViewController.swift in Sources */,
 				98ED2ADE210873260080A5DA /* User.swift in Sources */,
+				989ACC152135B7310000B32D /* LicenseListTableViewController.swift in Sources */,
 				985C6A58210A2C940015D610 /* FireStorageImageUpload.swift in Sources */,
 				98D838D42117292400BD7BD8 /* MissionViewController.swift in Sources */,
 				98D838D621172E0000BD7BD8 /* Missions.swift in Sources */,
@@ -671,15 +711,16 @@
 			baseConfigurationReference = EEA8399CD3119619E1A5AB4D /* Pods-DroneGuardian.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = DroneGuardian/DroneGuardian.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = UNZ8Q3YU3G;
+				DEVELOPMENT_TEAM = 829G28L4F3;
 				INFOPLIST_FILE = DroneGuardian/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = DroneGuardian.DroneGuardian;
+				PRODUCT_BUNDLE_IDENTIFIER = DroneGuardy.JohnBiselli;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -691,15 +732,16 @@
 			baseConfigurationReference = A1FEA7B972F7CED3A5B4CCEF /* Pods-DroneGuardian.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = DroneGuardian/DroneGuardian.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = UNZ8Q3YU3G;
+				DEVELOPMENT_TEAM = 829G28L4F3;
 				INFOPLIST_FILE = DroneGuardian/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = DroneGuardian.DroneGuardian;
+				PRODUCT_BUNDLE_IDENTIFIER = DroneGuardy.JohnBiselli;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

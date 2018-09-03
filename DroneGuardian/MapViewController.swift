@@ -26,12 +26,14 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
     let manager = CLLocationManager()
     var latitude: CLLocationDegrees = 0.0
     var longitude: CLLocationDegrees = 0.0
+    
+    var searchLatitude: CLLocationDegrees = 0.0
+    var searchLongitude: CLLocationDegrees = 0.0
+    
     var pin: AnnotationPin!
     var dronePilot = [User]()
     
-
-    override func viewDidLoad()
-    {
+    override func viewDidLoad(){
         super.viewDidLoad()
         
         manager.delegate = self
@@ -45,8 +47,17 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
         dronePilot.removeAll()
         mapKit.delegate = self
         searchBar.delegate = self
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(MapViewController.dismissKeyboard))
+        view.addGestureRecognizer(tap)
+        tap.cancelsTouchesInView = false
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         checkAccountType()
-        
+    }
+    
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
@@ -57,7 +68,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
         activityIndicator.center = self.view.center
         activityIndicator.hidesWhenStopped = true
         activityIndicator.startAnimating()
-        
+
         self.view.addSubview(activityIndicator)
         
         //Create the search request
@@ -78,21 +89,25 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
             else
             {
                 //Remove annotations
-                let annotations = self.mapKit.annotations
-                self.mapKit.removeAnnotations(annotations)
+//                let annotations = self.mapKit.annotations
+//                self.mapKit.removeAnnotations(annotations)
                 
                 //Getting data
-                let latitude = response?.boundingRegion.center.latitude
-                let longitude = response?.boundingRegion.center.longitude
+                self.searchLatitude = (response?.boundingRegion.center.latitude)!
+                self.searchLongitude = (response?.boundingRegion.center.longitude)!
+                
                 
                 //Create annotation
-                let annotation = MKPointAnnotation()
-                annotation.title = searchBar.text
-                annotation.coordinate = CLLocationCoordinate2DMake(latitude!, longitude!)
-                self.mapKit.addAnnotation(annotation)
+                if pilot == false{
+                    let annotation = MKPointAnnotation()
+                    annotation.title = searchBar.text
+                    annotation.subtitle = "My Location"
+                    annotation.coordinate = CLLocationCoordinate2DMake(self.searchLatitude, self.searchLongitude)
+                    self.mapKit.addAnnotation(annotation)
+                }
                 
                 //Zooming in on annotation
-                let coordinate:CLLocationCoordinate2D = CLLocationCoordinate2DMake(latitude!, longitude!)
+                let coordinate:CLLocationCoordinate2D = CLLocationCoordinate2DMake(self.searchLatitude, self.searchLongitude)
                 let span = MKCoordinateSpanMake(0.1, 0.1)
                 let region = MKCoordinateRegionMake(coordinate, span)
                 self.mapKit.setRegion(region, animated: true)
@@ -123,11 +138,48 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
                     let array = document.data()["l"] as? NSArray
                     let latitude = array![0] as! Double
                     let longitude = array![1] as! Double
-                    self.addAnnotations(longitutde: longitude, latitude: latitude, dronePilot: "Drone Pilot")
-//                    self.addAnnotations(longitutde: longitude, latitude: latitude, dronePilot: "Drone Pilot")
+                    self.addAnnotations(longitutde: longitude, latitude: latitude, dronePilot: client)
                 }
             }
         })
+    }
+    
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        if annotation is MKUserLocation {
+            return nil
+        }else if annotation.coordinate.latitude == searchLatitude && annotation.coordinate.longitude == searchLongitude {
+            let reuseID = "dronePin"
+            var v = mapView.dequeueReusableAnnotationView(withIdentifier: reuseID)
+            
+            if v != nil {
+                v?.annotation = annotation
+            } else {
+                v = MKAnnotationView(annotation: annotation, reuseIdentifier: reuseID)
+                v?.canShowCallout = true
+                
+                v?.image = UIImage(named:"location-pin")
+            }
+            
+            return v
+            
+        }else{
+            let reuseID = "dronePin"
+            var v = mapView.dequeueReusableAnnotationView(withIdentifier: reuseID)
+            
+            if v != nil {
+                v?.annotation = annotation
+            } else {
+                v = MKAnnotationView(annotation: annotation, reuseIdentifier: reuseID)
+                v?.canShowCallout = true
+
+                
+                v?.image = UIImage(named:"drone")
+            }
+            
+            return v
+            
+        }
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -158,20 +210,30 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
     }
 
     @IBAction func findDroneButtonPressed(_ sender: UIButton) {
-        dronePilot.removeAll()
-        let center = CLLocation(latitude: latitude, longitude: longitude)
-        let circleQuery = geoFirestore.query(withCenter: center, radius: 1)
+        var center: CLLocation
+        if searchBar.text == ""{
+            center = CLLocation(latitude: latitude, longitude: longitude)
+
+        }else{
+            center = CLLocation(latitude: searchLatitude, longitude: searchLongitude)
+
+        }
+
+        print(center)
+        let circleQuery = geoFirestore.query(withCenter: center, radius: 3)
         circleQuery.observe(.documentEntered, with: { (key, location) in
             print("The document with documentID '\(key!)' entered the search area and is at location '\(location!)'")
             User.fetchUserData(uid: key!, completionBlock: { (user) in
-                if user.pilot == true{
+                self.dronePilot.removeAll()
+                print(self.dronePilot)
+                if user.pilot == true && user.status == "Online"{
                     self.dronePilot.append(user)
+                    print("Second \(self.dronePilot)")
                     DispatchQueue.main.async {
                         self.dronePilotView.reloadData()
                     }
                 }
-                
-                
+                self.dronePilotView.reloadData()
             })
         })
     }
@@ -196,11 +258,24 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
     }
     
     private func addAnnotations(longitutde: Double, latitude: Double, dronePilot: String) {
-        
         let annotation = MKPointAnnotation()
-        annotation.title = dronePilot
-        annotation.coordinate = CLLocationCoordinate2D(latitude: CLLocationDegrees(latitude) , longitude: CLLocationDegrees(longitutde))
+        annotation.title = "\(dronePilot) - Mission"
+        annotation.coordinate = CLLocationCoordinate2D(latitude: CLLocationDegrees(latitude), longitude: CLLocationDegrees(longitutde))
+        let location = CLLocation(latitude: latitude, longitude: longitutde)
         
+        let geoCoder = CLGeocoder()
+        geoCoder.reverseGeocodeLocation(location) { (placemarks, error) in
+            if error != nil{
+                print(error!)
+                return
+            }
+            
+            if let placemarkArray = placemarks{
+                if let placemark = placemarkArray.first{
+                    annotation.subtitle = "\(placemark.name!), \(placemark.postalCode!)"
+                }
+            }
+        }
         mapKit.addAnnotation(annotation)
     }
     

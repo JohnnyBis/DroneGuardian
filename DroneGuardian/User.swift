@@ -27,10 +27,14 @@ class User{
     public private(set) var milesAvailable: String
     public private(set) var weekdays: Bool
     public private(set) var weekends: Bool
+    public private(set) var patentID: String
+    public private(set) var drones: Array<String>
+    public private(set) var status: String
+    public private(set) var licenses: Array<String>
 
     
     
-    init(username: String, imageUrl: String?, balance: Int, pilot: Bool, id: String, address: String?, email: String, company: String, insurance: String, coverage: String, phoneNumber: String, milesAvailable: String, weekdays: Bool, weekends: Bool) {
+    init(username: String, imageUrl: String?, balance: Int, pilot: Bool, id: String, address: String?, email: String, company: String, insurance: String, coverage: String, phoneNumber: String, milesAvailable: String, weekdays: Bool, weekends: Bool, patentID: String, drones: Array<String>, status: String, licenses: Array<String>) {
         self.username = username
         self.imageUrl = imageUrl
         self.balance = balance
@@ -45,6 +49,10 @@ class User{
         self.milesAvailable = milesAvailable
         self.weekdays = weekdays
         self.weekends = weekends
+        self.patentID = patentID
+        self.drones = drones
+        self.status = status
+        self.licenses = licenses
     }
     
     static func fetchUserData(uid: String, completionBlock: @escaping (_ user: User) -> Void){
@@ -64,8 +72,12 @@ class User{
                 let milesAvaible = (data!["Miles available"]) as! String
                 let weekdays = (data!["Weekdays"]) as! Bool
                 let weekends = (data!["Weekends"]) as! Bool
+                let patentID = (data!["Patent ID"]) as! String
+                let drones = (data!["Drones"]) as! Array<String>
+                let status = (data!["Status"]) as! String
+                let licenses = (data!["License"]) as! Array<String>
                 
-                let user = User(username: username, imageUrl: nil, balance: 0, pilot: pilot, id: id, address: address, email: email, company: company, insurance: insurance, coverage: coverage, phoneNumber: phoneNumber, milesAvailable: milesAvaible, weekdays: weekdays, weekends: weekends)
+                let user = User(username: username, imageUrl: nil, balance: 0, pilot: pilot, id: id, address: address, email: email, company: company, insurance: insurance, coverage: coverage, phoneNumber: phoneNumber, milesAvailable: milesAvaible, weekdays: weekdays, weekends: weekends, patentID: patentID, drones: drones, status: status, licenses: licenses)
                 
                 completionBlock(user)
             }else{
@@ -73,6 +85,5 @@ class User{
             }
         }
     }
-        
     
 }

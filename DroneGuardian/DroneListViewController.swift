@@ -49,7 +49,14 @@ class DroneListViewController: UIViewController, UITableViewDelegate, UITableVie
         super.viewDidLoad()
         droneList.delegate = self
         droneList.dataSource = self
-
+        self.droneList.tableFooterView = UIView(frame: CGRect.zero)
+        
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        if isMovingFromParentViewController{
+            DataService.ds.REF_USERS.document(uid!).setData(["Drones": selectedCells], merge: true)
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -68,7 +75,7 @@ class DroneListViewController: UIViewController, UITableViewDelegate, UITableVie
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = droneList.dequeueReusableCell(withIdentifier: "droneCell", for: indexPath as IndexPath)
-        
+
         cell.textLabel?.text = list[indexPath.row]
         
         cell.accessoryType = selectedCells.contains(list[indexPath.row]) ? .checkmark : .none
@@ -77,6 +84,7 @@ class DroneListViewController: UIViewController, UITableViewDelegate, UITableVie
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
         if selectedCells.contains(list[indexPath.row]) {
             let position = selectedCells.index(of: list[indexPath.row])
             selectedCells.remove(at: position!)

@@ -50,9 +50,12 @@ class DroneLivestreamViewController: UIViewController {
                         print(error!)
                         return
                     }
-                    let url = doc?.data()!["Url"]
-                    self.watchDroneStream(youtubeUrl: url as! String)
-                    self.standByStream.isHidden = true
+                    
+                    let url = doc?.data()!["Url"] as! String
+                    if url != ""{
+                        self.watchDroneStream(youtubeUrl: url as! String)
+                        self.standByStream.isHidden = true
+                    }
                 })
             }
         }

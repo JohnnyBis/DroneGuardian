@@ -13,7 +13,7 @@ import M13Checkbox
 
 var pilot: Bool = false
 
-class SignUpViewController: UIViewController{
+class SignUpViewController: UIViewController, UITextFieldDelegate{
 
     @IBOutlet weak var fullNameField: UITextField!
     @IBOutlet weak var emailField: UITextField!
@@ -34,27 +34,30 @@ class SignUpViewController: UIViewController{
 
         checkBox.addSubview(check)
         privacyCheckBox.addSubview(privacyCheck)
+        signUpButton.contentEdgeInsets = UIEdgeInsets(top: 12, left: 16, bottom: 12, right: 16)
+        fullNameField.delegate = self
+        emailField.delegate = self
+        passwordField.delegate = self
         
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
     @IBAction func signUpButtonPressed(_ sender: UIButton) {
-        userData = ["Full Name":fullNameField.text!, "Balance": 0, "Pilot": pilot, "Address": "", "Phone": "", "Insurance": "", "Coverage": "", "Company": "", "Email": emailField.text!]
-        creatDBUser(userData: userData)
+        creatDBUser()
     }
     
-    func creatDBUser(userData: Dictionary<String, Any>){
+    func creatDBUser(){
         Auth.auth().createUser(withEmail: emailField.text!, password: passwordField.text!, completion: { (user, error) in
             if error != nil{
                 print(error!)
                 
             }else{
-                DataService.ds.createFirebaseDBUsers(uid: (user?.user.uid)!, userData: userData)
-                DataService.ds.addDataFirebaseDBPosts(userData: ["Id": user?.user.uid], uid: (user?.user.uid)!)
+                self.userData = ["Full Name": self.fullNameField.text!, "Balance": 0, "Pilot": pilot, "Address": "", "Phone": "", "Insurance": "", "Coverage": "", "Company": "", "Email": self.emailField.text!, "Id": uid!, "Number": "", "Miles available": "", "Weekdays": false, "Weekends": false, "Patent ID": "", "Drones": [], "License": [], "Status": "Online"]
+                DataService.ds.createFirebaseDBUsers(uid: (user?.user.uid)!, userData: self.userData)
                 print("Successful registration")
                 self.performSegue(withIdentifier: "goToMapFromSignUp", sender: self)
                 
