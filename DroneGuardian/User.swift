@@ -30,11 +30,11 @@ class User{
     public private(set) var patentID: String
     public private(set) var drones: Array<String>
     public private(set) var status: String
-    public private(set) var licenses: Array<String>
+    public private(set) var licenses: String
 
     
     
-    init(username: String, imageUrl: String?, balance: Int, pilot: Bool, id: String, address: String?, email: String, company: String, insurance: String, coverage: String, phoneNumber: String, milesAvailable: String, weekdays: Bool, weekends: Bool, patentID: String, drones: Array<String>, status: String, licenses: Array<String>) {
+    init(username: String, imageUrl: String?, balance: Int, pilot: Bool, id: String, address: String?, email: String, company: String, insurance: String, coverage: String, phoneNumber: String, milesAvailable: String, weekdays: Bool, weekends: Bool, patentID: String, drones: Array<String>, status: String, licenses: String) {
         self.username = username
         self.imageUrl = imageUrl
         self.balance = balance
@@ -60,7 +60,7 @@ class User{
             if let document = document, document.exists{
                 let data = document.data()
                 let username = (data!["Full Name"])! as! String
-//                let url = (data!["Image Url"])! as! String
+                let url = (data!["Profile Url"])! as! String
                 let pilot = (data!["Pilot"])! as! Bool
                 let id = (data!["Id"]) as! String
                 let address = (data!["Address"]) as! String
@@ -75,9 +75,9 @@ class User{
                 let patentID = (data!["Patent ID"]) as! String
                 let drones = (data!["Drones"]) as! Array<String>
                 let status = (data!["Status"]) as! String
-                let licenses = (data!["License"]) as! Array<String>
+                let licenses = (data!["License Url"]) as! String
                 
-                let user = User(username: username, imageUrl: nil, balance: 0, pilot: pilot, id: id, address: address, email: email, company: company, insurance: insurance, coverage: coverage, phoneNumber: phoneNumber, milesAvailable: milesAvaible, weekdays: weekdays, weekends: weekends, patentID: patentID, drones: drones, status: status, licenses: licenses)
+                let user = User(username: username, imageUrl: url, balance: 0, pilot: pilot, id: id, address: address, email: email, company: company, insurance: insurance, coverage: coverage, phoneNumber: phoneNumber, milesAvailable: milesAvaible, weekdays: weekdays, weekends: weekends, patentID: patentID, drones: drones, status: status, licenses: licenses)
                 
                 completionBlock(user)
             }else{

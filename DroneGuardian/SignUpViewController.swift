@@ -56,7 +56,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate{
                 print(error!)
                 
             }else{
-                self.userData = ["Full Name": self.fullNameField.text!, "Balance": 0, "Pilot": pilot, "Address": "", "Phone": "", "Insurance": "", "Coverage": "", "Company": "", "Email": self.emailField.text!, "Id": uid!, "Number": "", "Miles available": "", "Weekdays": false, "Weekends": false, "Patent ID": "", "Drones": [], "License": [], "Status": "Online"]
+                self.userData = ["Full Name": self.fullNameField.text!, "Balance": 0, "Pilot": pilot, "Address": "", "Phone": "", "Insurance": "", "Coverage": "", "Company": "", "Email": self.emailField.text!, "Id": uid!, "Number": "", "Miles available": "", "Weekdays": false, "Weekends": false, "Patent ID": "", "Drones": [], "License": [], "Status": "Online", "Profile Url": ""]
                 DataService.ds.createFirebaseDBUsers(uid: (user?.user.uid)!, userData: self.userData)
                 print("Successful registration")
                 self.performSegue(withIdentifier: "goToMapFromSignUp", sender: self)

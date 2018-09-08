@@ -10,8 +10,8 @@
 		2CB17A1EDA3D9D10304BC0B6 /* Pods_DroneGuardianUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DFDA94530F4F05A5EBC72E1B /* Pods_DroneGuardianUITests.framework */; };
 		9829F1972123A8C600B5D286 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9829F1962123A8C600B5D286 /* StoreKit.framework */; };
 		9829F1992124E98C00B5D286 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9829F1982124E98C00B5D286 /* WelcomeViewController.swift */; };
-		985C6A58210A2C940015D610 /* FireStorageImageUpload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 985C6A57210A2C940015D610 /* FireStorageImageUpload.swift */; };
 		9861CA3F2111C62700F3EE01 /* AnnotationPin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9861CA3E2111C62700F3EE01 /* AnnotationPin.swift */; };
+		9882CA74213F788200D2A87C /* CertificationCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9882CA73213F788200D2A87C /* CertificationCollectionViewCell.swift */; };
 		989ACC132135088F0000B32D /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 989ACC122135088F0000B32D /* ResetPasswordViewController.swift */; };
 		989ACC152135B7310000B32D /* LicenseListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 989ACC142135B7310000B32D /* LicenseListTableViewController.swift */; };
 		989C1397211918DE000E324E /* TermsAndConditionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 989C1396211918DE000E324E /* TermsAndConditionsViewController.swift */; };
@@ -67,8 +67,8 @@
 		9355E660348B174ADBB4FC33 /* Pods-DroneGuardianUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DroneGuardianUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DroneGuardianUITests/Pods-DroneGuardianUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		9829F1962123A8C600B5D286 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		9829F1982124E98C00B5D286 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
-		985C6A57210A2C940015D610 /* FireStorageImageUpload.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireStorageImageUpload.swift; sourceTree = "<group>"; };
 		9861CA3E2111C62700F3EE01 /* AnnotationPin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnotationPin.swift; sourceTree = "<group>"; };
+		9882CA73213F788200D2A87C /* CertificationCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CertificationCollectionViewCell.swift; sourceTree = "<group>"; };
 		989ACC122135088F0000B32D /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewController.swift; sourceTree = "<group>"; };
 		989ACC142135B7310000B32D /* LicenseListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LicenseListTableViewController.swift; sourceTree = "<group>"; };
 		989C1396211918DE000E324E /* TermsAndConditionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsAndConditionsViewController.swift; sourceTree = "<group>"; };
@@ -217,6 +217,7 @@
 				989ACC122135088F0000B32D /* ResetPasswordViewController.swift */,
 				989ACC142135B7310000B32D /* LicenseListTableViewController.swift */,
 				98A427EC2139FEE800278343 /* Animation.swift */,
+				9882CA73213F788200D2A87C /* CertificationCollectionViewCell.swift */,
 			);
 			path = DroneGuardian;
 			sourceTree = "<group>";
@@ -243,7 +244,6 @@
 			isa = PBXGroup;
 			children = (
 				98ED2AE0210882600080A5DA /* DataService.swift */,
-				985C6A57210A2C940015D610 /* FireStorageImageUpload.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -421,6 +421,7 @@
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/GradientLoadingBar/GradientLoadingBar.framework",
+				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/M13Checkbox/M13Checkbox.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
 				"${BUILT_PRODUCTS_DIR}/SkeletonView/SkeletonView.framework",
@@ -442,6 +443,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GradientLoadingBar.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/M13Checkbox.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SkeletonView.framework",
@@ -524,6 +526,7 @@
 			files = (
 				98ED2ADC210872190080A5DA /* SignUpViewController.swift in Sources */,
 				9829F1992124E98C00B5D286 /* WelcomeViewController.swift in Sources */,
+				9882CA74213F788200D2A87C /* CertificationCollectionViewCell.swift in Sources */,
 				98C1CF932107A74D009A5311 /* LoginViewController.swift in Sources */,
 				98CB42842113D7F80035B94C /* StreamSetupViewController.swift in Sources */,
 				98C1CF5F21078327009A5311 /* AppDelegate.swift in Sources */,
@@ -540,7 +543,6 @@
 				98A427EB2139FC0700278343 /* MissionSetupCompleteViewController.swift in Sources */,
 				98ED2ADE210873260080A5DA /* User.swift in Sources */,
 				989ACC152135B7310000B32D /* LicenseListTableViewController.swift in Sources */,
-				985C6A58210A2C940015D610 /* FireStorageImageUpload.swift in Sources */,
 				98D838D42117292400BD7BD8 /* MissionViewController.swift in Sources */,
 				98D838D621172E0000BD7BD8 /* Missions.swift in Sources */,
 				989C1397211918DE000E324E /* TermsAndConditionsViewController.swift in Sources */,

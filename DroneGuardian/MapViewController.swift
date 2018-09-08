@@ -108,7 +108,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
                 
                 //Zooming in on annotation
                 let coordinate:CLLocationCoordinate2D = CLLocationCoordinate2DMake(self.searchLatitude, self.searchLongitude)
-                let span = MKCoordinateSpanMake(0.1, 0.1)
+                let span = MKCoordinateSpanMake(0.5, 0.5)
                 let region = MKCoordinateRegionMake(coordinate, span)
                 self.mapKit.setRegion(region, animated: true)
             }
@@ -190,7 +190,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
     {
         let location = locations[0]
         
-        let span:MKCoordinateSpan = MKCoordinateSpanMake(0.5, 0.5)
+        let span:MKCoordinateSpan = MKCoordinateSpanMake(0.025, 0.025)
         let myLocation:CLLocationCoordinate2D = CLLocationCoordinate2DMake(location.coordinate.latitude, location.coordinate.longitude)
         
         if searchBar.text == ""{

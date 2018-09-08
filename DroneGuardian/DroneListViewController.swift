@@ -49,7 +49,7 @@ class DroneListViewController: UIViewController, UITableViewDelegate, UITableVie
         super.viewDidLoad()
         droneList.delegate = self
         droneList.dataSource = self
-        self.droneList.tableFooterView = UIView(frame: CGRect.zero)
+//        self.droneList.tableFooterView = UIView(frame: CGRect.zero)
         
     }
     
@@ -84,6 +84,7 @@ class DroneListViewController: UIViewController, UITableViewDelegate, UITableVie
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        droneList.cellForRow(at: indexPath)?.accessoryType = UITableViewCellAccessoryType.checkmark
         
         if selectedCells.contains(list[indexPath.row]) {
             let position = selectedCells.index(of: list[indexPath.row])

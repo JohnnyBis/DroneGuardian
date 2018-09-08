@@ -10,11 +10,12 @@ import UIKit
 import FirebaseStorage
 import FirebaseAuth
 import SkeletonView
+import Kingfisher
 
 var selectedCells: [String] = []
 var selectedLicense: [String] = []
 
-class ProfileViewController: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate{
+class ProfileViewController: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
     
 
     @IBOutlet weak var profileImage: UIImageView!
@@ -36,10 +37,12 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UIImagePicke
     @IBOutlet weak var selectDroneButton: UIButton!
     @IBOutlet weak var registeredLicenses: UILabel!
     @IBOutlet weak var status: UIButton!
+    @IBOutlet weak var licenseCollectionView: UICollectionView!
     
     let imagePicker = UIImagePickerController()
     var selectedImage: UIImage!
     var pictureType: String = ""
+    var license: String = ""
 
     
     override func viewDidLoad() {
@@ -62,6 +65,9 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UIImagePicke
         imagePicker.allowsEditing = false
         imagePicker.sourceType = .photoLibrary
         status.isSelected = true
+        licenseCollectionView.delegate = self
+        licenseCollectionView.dataSource = self
+        licenseCollectionView.allowsSelection = true
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -75,9 +81,16 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UIImagePicke
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+
     func fetchUserData(){
         User.fetchUserData(uid: uid!) { (user) in
+            
+            if let url = user.imageUrl{
+                let imageUrl = URL(string: url)
+                self.profileImage.kf.setImage(with: imageUrl)
+            }
+            
+            self.license = user.licenses
             self.username.text = user.username
             self.fullName.text = user.username
             self.email.text = user.email
@@ -113,7 +126,7 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UIImagePicke
                 
             }
             
-            if user.licenses == []{
+            if user.licenses == ""{
                 self.registeredLicenses.text = "No licenses registered"
             }else{
                 let list = user.licenses
@@ -208,36 +221,6 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UIImagePicke
         pictureType = "Insurance Url"
     }
     
-    func uploadProfileImage(image: UIImage, name: String){
-        FireStorageImageUpload().uploadImage(image, progressBlock: { (percentage) in
-        }, completionBlock: { (fileUrl, error) in
-            if error != nil{
-                print("ERROR: " + error!)
-            }
-            DataService.ds.REF_USERS.document(uid!).updateData([name: "\(fileUrl!)"], completion: { (error) in
-                if error != nil{
-                    print(error!)
-                }
-            })
-        })
-    }
-    
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage{
-            if pictureType == "Profile Image"{
-                profileImage.contentMode = .scaleAspectFill
-                profileImage.image = pickedImage
-                selectedImage = pickedImage
-                uploadProfileImage(image: selectedImage, name: pictureType)
-            }else{
-                selectedImage = pickedImage
-                uploadProfileImage(image: selectedImage, name: pictureType)
-            }
-        }
-        
-        dismiss(animated: true, completion: nil)
-    }
-    
     @IBAction func signOutButtonPressed(_ sender: UIButton) {
         do {
             try Auth.auth().signOut()
@@ -257,10 +240,81 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UIImagePicke
         }else{
             status.isSelected = false
             status.titleLabel?.text = "Offline"
-            DataService.ds.REF_USERS.document(uid!).updateData(["Status": "Online"])
+            DataService.ds.REF_USERS.document(uid!).updateData(["Status": "Offline"])
             
         }
         
     }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 1
+        
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = licenseCollectionView.dequeueReusableCell(withReuseIdentifier: "licenseCell", for: indexPath) as! CertificationCollectionViewCell
+        let url = URL(string: license)
+        cell.licenseImage.kf.setImage(with: url)
+        
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+//        selectedPilotID = dronePilot[indexPath.row].userID
+        performSegue(withIdentifier: "goToSetupFromMap", sender: self)
+    }
+    
+    @IBAction func changePictureButtonPressed(_ sender: UIButton) {
+        pictureType = "Profile Url"
+        present(imagePicker, animated: true, completion: nil)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
+            profileImage.contentMode = .scaleAspectFit
+            profileImage.image = pickedImage
+            uploadImage(pickedImage) { (url, error) in
+                if error != nil{
+                    print(error!)
+                    return
+                }
+                DataService.ds.REF_USERS.document(uid!).updateData(["Profile Url": url!])
+            }
+            
+        }
+        
+        dismiss(animated: true, completion: nil)
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    func uploadImage(_ image: UIImage, completionBlock: @escaping (_ url: String?, _ errorMessage: String?) -> Void) {
+        
+        let data = UIImageJPEGRepresentation(image, 0.8)
+        let storageRef = Storage.storage().reference()
+        let riversRef = storageRef.child("Profile").child(uid!)
+        
+        riversRef.putData(data!, metadata: nil) { (metadata, error) in
+            if error != nil {
+                
+                completionBlock(nil, "Couldnt upload due to \(String(describing: error))")
+            } else {
+                riversRef.downloadURL(completion: { (url, error) in
+                    guard let downloadURL = url else {
+                        return
+                    }
+                    completionBlock(downloadURL.absoluteString, nil)
+                })
+            }
+        }
+    }
+
+    
+    
+    
+    
+    
     
 }

@@ -21,7 +21,7 @@ class LicenseListTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
         
-        self.tableView.tableFooterView = UIView(frame: CGRect.zero)
+//        self.tableView.tableFooterView = UIView(frame: CGRect.zero)
 
     }
 
@@ -53,7 +53,7 @@ class LicenseListTableViewController: UITableViewController {
         
         cell.textLabel?.text = list[indexPath.row]
         
-        cell.accessoryType = selectedLicense.contains(list[indexPath.row]) ? .checkmark : .none
+        cell.accessoryType = selectedLicense.contains(list[indexPath.row]) ? .checkmark: .none
         
         return cell
     }
@@ -64,8 +64,10 @@ class LicenseListTableViewController: UITableViewController {
         if selectedLicense.contains(list[indexPath.row]) {
             let position = selectedLicense.index(of: list[indexPath.row])
             selectedLicense.remove(at: position!)
+
         } else {
             selectedLicense.append(list[indexPath.row])
+
         }
         print(selectedLicense)
         tableView.reloadData()

@@ -117,8 +117,8 @@ class MissionViewController: UIViewController, UITableViewDelegate, UITableViewD
         // Some custom button stuff
         emptyView.button.layer.cornerRadius = 5
         emptyView.button.layer.borderWidth = 1
-        emptyView.button.layer.borderColor = UIColor.gray.cgColor
-        emptyView.button.layer.backgroundColor = UIColor.gray.cgColor
+        emptyView.button.layer.borderColor = UIColor(red:0.21, green:0.73, blue:0.70, alpha:1.0).cgColor
+        emptyView.button.layer.backgroundColor = UIColor(red:0.21, green:0.73, blue:0.70, alpha:1.0).cgColor
     }
     
     
