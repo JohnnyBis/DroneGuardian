@@ -9,7 +9,6 @@
 import UIKit
 import FirebaseAuth
 import FirebaseStorage
-import M13Checkbox
 
 var pilot: Bool = false
 
@@ -19,8 +18,6 @@ class SignUpViewController: UIViewController, UITextFieldDelegate{
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
     @IBOutlet weak var signUpButton: UIButton!
-    @IBOutlet weak var checkBox: M13Checkbox!
-    @IBOutlet weak var privacyCheckBox: M13Checkbox!
     
     var userData: [String:Any] = [:]
     
@@ -29,11 +26,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate{
         signUpButton.layer.cornerRadius = 5
         signUpButton.layer.borderWidth = 1
         signUpButton.layer.borderColor = UIColor(red:0.17, green:0.73, blue:0.70, alpha:1.0).cgColor
-        let check = M13Checkbox(frame: CGRect(x: 0.0, y: 0.0, width: 20.0, height: 20.0))
-        let privacyCheck = M13Checkbox(frame: CGRect(x: 0.0, y: 0.0, width: 20.0, height: 20.0))
-
-        checkBox.addSubview(check)
-        privacyCheckBox.addSubview(privacyCheck)
+        
         signUpButton.contentEdgeInsets = UIEdgeInsets(top: 12, left: 16, bottom: 12, right: 16)
         fullNameField.delegate = self
         emailField.delegate = self

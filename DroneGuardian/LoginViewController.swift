@@ -22,6 +22,10 @@ class LoginViewController: UIViewController, UITextFieldDelegate{
         loginButton.layer.borderColor = UIColor(red:0.17, green:0.73, blue:0.70, alpha:1.0).cgColor
         emailField.delegate = self
         passwordField.delegate = self
+        loginButton.layer.shadowColor = UIColor(red:0.11, green:0.47, blue:0.45, alpha:1.0).cgColor
+        loginButton.layer.shadowOffset = CGSize(width: 5, height: 5)
+        loginButton.layer.shadowRadius = 5
+        loginButton.layer.shadowOpacity = 0.5
         
     }
 

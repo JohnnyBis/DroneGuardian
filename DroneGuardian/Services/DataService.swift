@@ -17,6 +17,7 @@ class DataService{
     private var _REF_BASE = DB_BASE
     private var _REF_MISSIONS = DB_BASE.collection("Missions")
     private var _REF_USERS = DB_BASE.collection("Users")
+    private var _REF_STORE = DB_BASE.collection("Store")
     
     var REF_BASE: Firestore{
         return _REF_BASE
@@ -28,6 +29,10 @@ class DataService{
     
     var REF_USERS: CollectionReference{
         return _REF_USERS
+    }
+    
+    var REF_STORE: CollectionReference{
+        return _REF_STORE
     }
     
     

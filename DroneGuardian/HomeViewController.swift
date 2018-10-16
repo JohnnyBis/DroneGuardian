@@ -22,7 +22,6 @@ class HomeViewController: UIViewController{
         }
         
         guard let navigationLoadingBar = navigationLoadingBar else { return }
-        
         let logo = UIImage(named: "droneguardy_horizontal_logo")
         let imageView = UIImageView(image:logo)
         imageView.contentMode = .scaleAspectFit

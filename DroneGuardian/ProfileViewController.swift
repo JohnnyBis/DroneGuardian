@@ -42,8 +42,6 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UIImagePicke
     let imagePicker = UIImagePickerController()
     var selectedImage: UIImage!
     var pictureType: String = ""
-    var license: String = ""
-
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -68,6 +66,9 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UIImagePicke
         licenseCollectionView.delegate = self
         licenseCollectionView.dataSource = self
         licenseCollectionView.allowsSelection = true
+//        chosenDrones.layer.borderWidth = 1
+//        chosenDrones.layer.borderColor = UIColor.orange.cgColor
+//        chosenDrones.layer.cornerRadius = 5
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -84,13 +85,12 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UIImagePicke
 
     func fetchUserData(){
         User.fetchUserData(uid: uid!) { (user) in
-            
-            if let url = user.imageUrl{
-                let imageUrl = URL(string: url)
+            let url = user.imageUrl
+            if url != ""{
+                let imageUrl = URL(string: url!)
                 self.profileImage.kf.setImage(with: imageUrl)
             }
             
-            self.license = user.licenses
             self.username.text = user.username
             self.fullName.text = user.username
             self.email.text = user.email
@@ -126,16 +126,13 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UIImagePicke
                 
             }
             
-            if user.licenses == ""{
+            if user.licenses == []{
                 self.registeredLicenses.text = "No licenses registered"
             }else{
                 let list = user.licenses
-                print(list)
                 self.registeredLicenses.text = "\(list)"
                 self.heighForLabel(label: self.registeredLicenses, text: "\(list)")
             }
-            
-            
             
         }
     }
@@ -253,8 +250,10 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UIImagePicke
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = licenseCollectionView.dequeueReusableCell(withReuseIdentifier: "licenseCell", for: indexPath) as! CertificationCollectionViewCell
-        let url = URL(string: license)
-        cell.licenseImage.kf.setImage(with: url)
+//        if let url = URL(string: license){
+//            cell.licenseImage.kf.setImage(with: url)
+//
+//        }
         
         return cell
     }
@@ -271,14 +270,33 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UIImagePicke
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
-            profileImage.contentMode = .scaleAspectFit
-            profileImage.image = pickedImage
-            uploadImage(pickedImage) { (url, error) in
-                if error != nil{
-                    print(error!)
-                    return
+            
+            if pictureType == "Profile Url"{
+                profileImage.contentMode = .scaleAspectFit
+                profileImage.image = pickedImage
+                uploadImage(pickedImage, true) { (url, error) in
+                    if error != nil{
+                        print(error!)
+                        return
+                    }
+                    DataService.ds.REF_USERS.document(uid!).updateData(["Profile Url": url!])
                 }
-                DataService.ds.REF_USERS.document(uid!).updateData(["Profile Url": url!])
+            }else if pictureType == "License Url"{
+                uploadImage(pickedImage, false) { (url, error) in
+                    if error != nil{
+                        print(error!)
+                        return
+                    }
+                    DataService.ds.REF_USERS.document(uid!).updateData([self.pictureType: url!])
+                }
+            }else{
+                uploadImage(pickedImage, false) { (url, error) in
+                    if error != nil{
+                        print(error!)
+                        return
+                    }
+                    DataService.ds.REF_USERS.document(uid!).updateData([self.pictureType: url!])
+                }
             }
             
         }
@@ -290,18 +308,24 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UIImagePicke
         dismiss(animated: true, completion: nil)
     }
     
-    func uploadImage(_ image: UIImage, completionBlock: @escaping (_ url: String?, _ errorMessage: String?) -> Void) {
+    func uploadImage(_ image: UIImage, _ profilePicture: Bool, completionBlock: @escaping (_ url: String?, _ errorMessage: String?) -> Void) {
         
         let data = UIImageJPEGRepresentation(image, 0.8)
         let storageRef = Storage.storage().reference()
-        let riversRef = storageRef.child("Profile").child(uid!)
+        var specificRef: StorageReference
         
-        riversRef.putData(data!, metadata: nil) { (metadata, error) in
+        if profilePicture == true{
+            specificRef = storageRef.child("Profile").child(uid!)
+        }else{
+            specificRef = storageRef.child("Documents")
+        }
+        
+        specificRef.putData(data!, metadata: nil) { (metadata, error) in
             if error != nil {
                 
                 completionBlock(nil, "Couldnt upload due to \(String(describing: error))")
             } else {
-                riversRef.downloadURL(completion: { (url, error) in
+                specificRef.downloadURL(completion: { (url, error) in
                     guard let downloadURL = url else {
                         return
                     }
@@ -310,8 +334,6 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UIImagePicke
             }
         }
     }
-
-    
     
     
     

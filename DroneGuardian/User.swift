@@ -30,11 +30,11 @@ class User{
     public private(set) var patentID: String
     public private(set) var drones: Array<String>
     public private(set) var status: String
-    public private(set) var licenses: String
+    public private(set) var licenses: Array<String>
 
     
     
-    init(username: String, imageUrl: String?, balance: Int, pilot: Bool, id: String, address: String?, email: String, company: String, insurance: String, coverage: String, phoneNumber: String, milesAvailable: String, weekdays: Bool, weekends: Bool, patentID: String, drones: Array<String>, status: String, licenses: String) {
+    init(username: String, imageUrl: String?, balance: Int, pilot: Bool, id: String, address: String?, email: String, company: String, insurance: String, coverage: String, phoneNumber: String, milesAvailable: String, weekdays: Bool, weekends: Bool, patentID: String, drones: Array<String>, status: String, licenses: Array<String>) {
         self.username = username
         self.imageUrl = imageUrl
         self.balance = balance
@@ -75,7 +75,7 @@ class User{
                 let patentID = (data!["Patent ID"]) as! String
                 let drones = (data!["Drones"]) as! Array<String>
                 let status = (data!["Status"]) as! String
-                let licenses = (data!["License Url"]) as! String
+                let licenses = (data!["License"]) as! Array<String>
                 
                 let user = User(username: username, imageUrl: url, balance: 0, pilot: pilot, id: id, address: address, email: email, company: company, insurance: insurance, coverage: coverage, phoneNumber: phoneNumber, milesAvailable: milesAvaible, weekdays: weekdays, weekends: weekends, patentID: patentID, drones: drones, status: status, licenses: licenses)
                 

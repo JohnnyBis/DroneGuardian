@@ -10,6 +10,7 @@ import UIKit
 import Firebase
 import GoogleMaps
 import GooglePlaces
+import FBSDKCoreKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -22,6 +23,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FirebaseApp.configure()
         GMSServices.provideAPIKey("AIzaSyBo5HsyNNwTHIPqHTzQVZqAsZvE32nQI04")
         GMSPlacesClient.provideAPIKey("AIzaSyBo5HsyNNwTHIPqHTzQVZqAsZvE32nQI04")
+        FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
+        func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
+            let handled = FBSDKApplicationDelegate.sharedInstance().application(app, open: url, options: options)
+            
+            return handled
+        }
         return true
     }
 

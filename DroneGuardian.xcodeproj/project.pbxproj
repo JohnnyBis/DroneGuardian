@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		2CB17A1EDA3D9D10304BC0B6 /* Pods_DroneGuardianUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DFDA94530F4F05A5EBC72E1B /* Pods_DroneGuardianUITests.framework */; };
+		9805D916215F1E8800B1A19E /* ShopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9805D915215F1E8800B1A19E /* ShopViewController.swift */; };
+		9805D918215F2D3F00B1A19E /* ItemShopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9805D917215F2D3F00B1A19E /* ItemShopViewController.swift */; };
+		9805D91B217111DD00B1A19E /* StoreItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9805D91A217111DD00B1A19E /* StoreItems.swift */; };
 		9829F1972123A8C600B5D286 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9829F1962123A8C600B5D286 /* StoreKit.framework */; };
 		9829F1992124E98C00B5D286 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9829F1982124E98C00B5D286 /* WelcomeViewController.swift */; };
 		9861CA3F2111C62700F3EE01 /* AnnotationPin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9861CA3E2111C62700F3EE01 /* AnnotationPin.swift */; };
@@ -65,6 +68,9 @@
 		61BD4B626D8A774E302B2397 /* Pods-DroneGuardianTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DroneGuardianTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-DroneGuardianTests/Pods-DroneGuardianTests.release.xcconfig"; sourceTree = "<group>"; };
 		81D8E189F0241D50A853EC7E /* Pods_DroneGuardianTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DroneGuardianTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9355E660348B174ADBB4FC33 /* Pods-DroneGuardianUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DroneGuardianUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DroneGuardianUITests/Pods-DroneGuardianUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		9805D915215F1E8800B1A19E /* ShopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopViewController.swift; sourceTree = "<group>"; };
+		9805D917215F2D3F00B1A19E /* ItemShopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemShopViewController.swift; sourceTree = "<group>"; };
+		9805D91A217111DD00B1A19E /* StoreItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreItems.swift; sourceTree = "<group>"; };
 		9829F1962123A8C600B5D286 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		9829F1982124E98C00B5D286 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		9861CA3E2111C62700F3EE01 /* AnnotationPin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnotationPin.swift; sourceTree = "<group>"; };
@@ -163,6 +169,14 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		9805D919217111BB00B1A19E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				9805D91A217111DD00B1A19E /* StoreItems.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		98C1CF5221078327009A5311 = {
 			isa = PBXGroup;
 			children = (
@@ -188,6 +202,7 @@
 		98C1CF5D21078327009A5311 /* DroneGuardian */ = {
 			isa = PBXGroup;
 			children = (
+				9805D919217111BB00B1A19E /* Model */,
 				98B16ABC2129E63D0076AC40 /* DroneGuardian.entitlements */,
 				98ED2ADF210876C70080A5DA /* Services */,
 				98C1CF5E21078327009A5311 /* AppDelegate.swift */,
@@ -218,6 +233,8 @@
 				989ACC142135B7310000B32D /* LicenseListTableViewController.swift */,
 				98A427EC2139FEE800278343 /* Animation.swift */,
 				9882CA73213F788200D2A87C /* CertificationCollectionViewCell.swift */,
+				9805D917215F2D3F00B1A19E /* ItemShopViewController.swift */,
+				9805D915215F1E8800B1A19E /* ShopViewController.swift */,
 			);
 			path = DroneGuardian;
 			sourceTree = "<group>";
@@ -414,15 +431,20 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-DroneGuardian/Pods-DroneGuardian-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/AWSAuthCore/AWSAuthCore.framework",
+				"${BUILT_PRODUCTS_DIR}/AWSCore/AWSCore.framework",
+				"${BUILT_PRODUCTS_DIR}/AWSMobileClient/AWSMobileClient.framework",
+				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
 				"${BUILT_PRODUCTS_DIR}/BoringSSL/openssl.framework",
 				"${BUILT_PRODUCTS_DIR}/Braintree/Braintree.framework",
 				"${BUILT_PRODUCTS_DIR}/BraintreeDropIn/BraintreeDropIn.framework",
 				"${BUILT_PRODUCTS_DIR}/ExpandableCell/ExpandableCell.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/GradientLoadingBar/GradientLoadingBar.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
-				"${BUILT_PRODUCTS_DIR}/M13Checkbox/M13Checkbox.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
 				"${BUILT_PRODUCTS_DIR}/SkeletonView/SkeletonView.framework",
 				"${BUILT_PRODUCTS_DIR}/UIEmptyState/UIEmptyState.framework",
@@ -436,15 +458,20 @@
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSAuthCore.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSCore.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSMobileClient.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Braintree.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BraintreeDropIn.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ExpandableCell.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GradientLoadingBar.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/M13Checkbox.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SkeletonView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/UIEmptyState.framework",
@@ -528,9 +555,11 @@
 				9829F1992124E98C00B5D286 /* WelcomeViewController.swift in Sources */,
 				9882CA74213F788200D2A87C /* CertificationCollectionViewCell.swift in Sources */,
 				98C1CF932107A74D009A5311 /* LoginViewController.swift in Sources */,
+				9805D91B217111DD00B1A19E /* StoreItems.swift in Sources */,
 				98CB42842113D7F80035B94C /* StreamSetupViewController.swift in Sources */,
 				98C1CF5F21078327009A5311 /* AppDelegate.swift in Sources */,
 				98C1CF952107C8BB009A5311 /* ProfileViewController.swift in Sources */,
+				9805D916215F1E8800B1A19E /* ShopViewController.swift in Sources */,
 				989ACC132135088F0000B32D /* ResetPasswordViewController.swift in Sources */,
 				989C139921191C60000E324E /* PrivacyViewController.swift in Sources */,
 				98C1CF972107DCA5009A5311 /* MapViewController.swift in Sources */,
@@ -540,6 +569,7 @@
 				98D838D82117380E00BD7BD8 /* SelectedMissionViewController.swift in Sources */,
 				9861CA3F2111C62700F3EE01 /* AnnotationPin.swift in Sources */,
 				989C139F211CC2B4000E324E /* DroneListViewController.swift in Sources */,
+				9805D918215F2D3F00B1A19E /* ItemShopViewController.swift in Sources */,
 				98A427EB2139FC0700278343 /* MissionSetupCompleteViewController.swift in Sources */,
 				98ED2ADE210873260080A5DA /* User.swift in Sources */,
 				989ACC152135B7310000B32D /* LicenseListTableViewController.swift in Sources */,
