@@ -28,14 +28,15 @@ class HomeViewController: UIViewController{
         self.navigationItem.titleView = imageView
     }
     
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-//    override func viewWillDisappear(_ animated: Bool) {
-//       GradientLoadingBar.shared.hide()
-//    }
+    override func viewWillDisappear(_ animated: Bool) {
+       GradientLoadingBar.shared.hide()
+    }
     
 //    override func viewDidAppear(_ animated: Bool) {
 //        if Auth.auth().currentUser?.uid != nil {
@@ -45,9 +46,8 @@ class HomeViewController: UIViewController{
 //    }
     
     @IBAction func dronePilotButtonPressed(_ sender: UIButton) {
-        DispatchQueue.main.async {
-            self.performSegue(withIdentifier: "goToInformationFromHome", sender: self)
-        }
+        self.performSegue(withIdentifier: "goToInformationFromHome", sender: self)
+
         pilot = true
         navigationLoadingBar?.toggle()
 
@@ -65,7 +65,7 @@ class HomeViewController: UIViewController{
 class BottomGradientLoadingBar: GradientLoadingBar {
     override func setupConstraints() {
         guard let superview = superview else { return }
-        
+
         NSLayoutConstraint.activate([
             gradientView.leadingAnchor.constraint(equalTo: superview.leadingAnchor),
             gradientView.trailingAnchor.constraint(equalTo: superview.trailingAnchor),

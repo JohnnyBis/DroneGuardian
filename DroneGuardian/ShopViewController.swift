@@ -12,6 +12,10 @@ import SkeletonView
 import FirebaseAuth
 import Firebase
 
+var selectedItemImage: String = ""
+var selectedItemName: String = ""
+var selectedItemPrice: String = ""
+
 class ShopViewController: UIViewController, UIScrollViewDelegate{
 
     @IBOutlet weak var scrollView: UIScrollView!
@@ -21,6 +25,7 @@ class ShopViewController: UIViewController, UIScrollViewDelegate{
     @IBOutlet var categoryOneImages: [UIButton]!
     @IBOutlet var categoryTwoImages: [UIButton]!
     @IBOutlet var categoryThreeImages: [UIButton]!
+    @IBOutlet var categoryFourLabels: [UILabel]!
     
     var imageTag = 0
     
@@ -39,6 +44,7 @@ class ShopViewController: UIViewController, UIScrollViewDelegate{
         fetchFirstCategory()
         fetchSecondCategory()
         fetchThirdCategory()
+        fetchFourthCategory()
 
     }
 
@@ -81,6 +87,18 @@ class ShopViewController: UIViewController, UIScrollViewDelegate{
         }
     }
     
+    func fetchFourthCategory(){
+        fetchItemReferences(category: "Category 4") { (itemRefs) in
+            print(itemRefs)
+            self.fetchDataFromRef(reference: itemRefs[0], itemLabel: self.categoryFourLabels[0], itemImage: nil)
+            self.fetchDataFromRef(reference: itemRefs[1], itemLabel: self.categoryFourLabels[1], itemImage: nil)
+            self.fetchDataFromRef(reference: itemRefs[2], itemLabel: self.categoryFourLabels[2], itemImage: nil)
+
+        }
+    }
+    
+    
+    
     func fetchItemReferences(category: String, completionBlock: @escaping(_ referenceArray: Array<String>) -> Void){
         
         StoreItems.fetchRow(categoryName: category) { (items) in
@@ -113,10 +131,91 @@ class ShopViewController: UIViewController, UIScrollViewDelegate{
         selectedItem.getDocument { (item, error) in
             if let itemData = item?.data(){
 //                itemLabel.hideSkeleton()
-                itemLabel.text = itemData["Name"]! as? String
+                let name = itemData["Name"] as? String
+                
+//                self.categoryOneItems.append(name!)
+                itemLabel.text = name
             }
         }
     }
+    
+    func fetchDataToSend(reference: String){
+        let selectedItem = Firestore.firestore().document(reference)
+        selectedItem.getDocument { (item, error) in
+            if let itemData = item?.data(){
+                let name = itemData["Name"] as? String
+                let url = itemData["Url"] as? String
+                let price = itemData["Price"] as? String
+                selectedItemName = name!
+                selectedItemImage = url!
+                selectedItemPrice = price!
+            }
+            self.performSegue(withIdentifier: "goToItemFromShop", sender: self)
+        }
+    }
+    
+    
+    
+    @IBAction func itemButtonPressed(_ sender: UIButton) {
+        switch sender.tag {
+        case 1, 2, 3:
+            fetchItemReferences(category: "Category 1") { (itemRefs) in
+                if sender.tag == 1{
+                    self.fetchDataToSend(reference: itemRefs[0])
+                    
+                }else if sender.tag == 2{
+                    self.fetchDataToSend(reference: itemRefs[1])
+                    
+                }else{
+                    self.fetchDataToSend(reference: itemRefs[2])
+                    
+                }
+            }
+            
+            break
+            
+        case 4:
+            fetchItemReferences(category: "Category 2") { (itemRefs) in
+                self.fetchDataToSend(reference: itemRefs[0])
+            }
 
+            break
+            
+        case 5, 6:
+            fetchItemReferences(category: "Category 3") { (itemRefs) in
+                if sender.tag == 5{
+                    self.fetchDataToSend(reference: itemRefs[0])
+                
+                }else{
+                    self.fetchDataToSend(reference: itemRefs[1])
+        
+                }
+
+            }
+
+            break
+            
+        case 7, 8, 9:
+            fetchItemReferences(category: "Category 4") { (itemRefs) in
+                if sender.tag == 7{
+                    self.fetchDataToSend(reference: itemRefs[0])
+                    
+                }else if sender.tag == 8{
+                    self.fetchDataToSend(reference: itemRefs[1])
+                    
+                }else{
+                    self.fetchDataToSend(reference: itemRefs[2])
+                    
+                }
+            }
+
+            break
+            
+        default:
+            print("Unknown language")
+            return
+        }
+    }
+    
 
 }

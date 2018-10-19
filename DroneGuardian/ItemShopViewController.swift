@@ -10,16 +10,30 @@ import UIKit
 import Braintree
 import BraintreeDropIn
 import Firebase
+import Kingfisher
 
 class ItemShopViewController: UIViewController {
 
     @IBOutlet weak var itemName: UILabel!
     @IBOutlet weak var itemPrice: UILabel!
+    @IBOutlet weak var itemImage: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        itemName.text = selectedItemName
+        itemPrice.text = "$\(selectedItemPrice)"
+        let url = URL(string: selectedItemImage)
+        itemImage.kf.setImage(with: url)
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        itemName.text = ""
+        itemPrice.text = ""
+    }
+    
     
 //    override func viewWillAppear(_ animated: Bool) {
 //        itemName.text = 
@@ -47,7 +61,7 @@ class ItemShopViewController: UIViewController {
                 print("Transaction Cancelled")
                 
             } else if let nonce = result?.paymentMethod?.nonce{
-                self.sendRequestPaymentToServer(nonce: nonce, amount: "50")
+                self.sendRequestPaymentToServer(nonce: nonce, amount: selectedItemPrice)
             }
             controller.dismiss(animated: true, completion: nil)
         }
@@ -71,9 +85,10 @@ class ItemShopViewController: UIViewController {
                 print("Transaction failed. Please try again.")
                 return
             }
-            
             print("Successfully charged $\(amount)")
             }.resume()
+        self.performSegue(withIdentifier: "goToSuccessPurchaseFromPayment", sender: self)
+
     }
     
     @IBAction func buyButtonPressed(_ sender: UIButton) {

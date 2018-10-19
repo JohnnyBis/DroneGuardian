@@ -11,6 +11,7 @@
 		9805D916215F1E8800B1A19E /* ShopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9805D915215F1E8800B1A19E /* ShopViewController.swift */; };
 		9805D918215F2D3F00B1A19E /* ItemShopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9805D917215F2D3F00B1A19E /* ItemShopViewController.swift */; };
 		9805D91B217111DD00B1A19E /* StoreItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9805D91A217111DD00B1A19E /* StoreItems.swift */; };
+		9823698C2176A039004CC495 /* PurchaseConfirmationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9823698B2176A039004CC495 /* PurchaseConfirmationViewController.swift */; };
 		9829F1972123A8C600B5D286 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9829F1962123A8C600B5D286 /* StoreKit.framework */; };
 		9829F1992124E98C00B5D286 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9829F1982124E98C00B5D286 /* WelcomeViewController.swift */; };
 		9861CA3F2111C62700F3EE01 /* AnnotationPin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9861CA3E2111C62700F3EE01 /* AnnotationPin.swift */; };
@@ -71,6 +72,7 @@
 		9805D915215F1E8800B1A19E /* ShopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopViewController.swift; sourceTree = "<group>"; };
 		9805D917215F2D3F00B1A19E /* ItemShopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemShopViewController.swift; sourceTree = "<group>"; };
 		9805D91A217111DD00B1A19E /* StoreItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreItems.swift; sourceTree = "<group>"; };
+		9823698B2176A039004CC495 /* PurchaseConfirmationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseConfirmationViewController.swift; sourceTree = "<group>"; };
 		9829F1962123A8C600B5D286 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		9829F1982124E98C00B5D286 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		9861CA3E2111C62700F3EE01 /* AnnotationPin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnotationPin.swift; sourceTree = "<group>"; };
@@ -235,6 +237,7 @@
 				9882CA73213F788200D2A87C /* CertificationCollectionViewCell.swift */,
 				9805D917215F2D3F00B1A19E /* ItemShopViewController.swift */,
 				9805D915215F1E8800B1A19E /* ShopViewController.swift */,
+				9823698B2176A039004CC495 /* PurchaseConfirmationViewController.swift */,
 			);
 			path = DroneGuardian;
 			sourceTree = "<group>";
@@ -557,6 +560,7 @@
 				98C1CF932107A74D009A5311 /* LoginViewController.swift in Sources */,
 				9805D91B217111DD00B1A19E /* StoreItems.swift in Sources */,
 				98CB42842113D7F80035B94C /* StreamSetupViewController.swift in Sources */,
+				9823698C2176A039004CC495 /* PurchaseConfirmationViewController.swift in Sources */,
 				98C1CF5F21078327009A5311 /* AppDelegate.swift in Sources */,
 				98C1CF952107C8BB009A5311 /* ProfileViewController.swift in Sources */,
 				9805D916215F1E8800B1A19E /* ShopViewController.swift in Sources */,

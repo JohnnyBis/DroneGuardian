@@ -55,6 +55,13 @@ class StoreItems{
                     rightItemRef = data!["Right Item"] as! String
                     let itemRefs = StoreItems(topItemRef: topItemRef, leftItemRef: nil, rightItemRef: rightItemRef)
                     completionBlock(itemRefs)
+                
+                case "Category 4":
+                    topItemRef = data!["Top Item"] as! String
+                    rightItemRef = data!["Right Item"] as! String
+                    leftItemRef = data!["Left Item"] as! String
+                    let itemRefs = StoreItems(topItemRef: topItemRef, leftItemRef: leftItemRef, rightItemRef: rightItemRef)
+                    completionBlock(itemRefs)
                     
                 default:
                     print("Not a valid category")
