@@ -1201,7 +1201,6 @@ Any redistribution or reproduction of part or all of the contents in any form is
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="MBx-pC-UHg"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Store" id="s08-SV-SmD"/>
                     <navigationItem key="navigationItem" title="Store" id="IJK-IY-7h8"/>
                     <size key="freeformSize" width="375" height="2100"/>
                     <connections>
@@ -1226,7 +1225,7 @@ Any redistribution or reproduction of part or all of the contents in any form is
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="40L-Cv-1mp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="7380" y="2092.6108374384239"/>
+            <point key="canvasLocation" x="8322.3999999999996" y="2092.6108374384239"/>
         </scene>
         <!--Item Shop View Controller-->
         <scene sceneID="ph4-e1-w9V">
@@ -1237,10 +1236,10 @@ Any redistribution or reproduction of part or all of the contents in any form is
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pxr-EE-cz1">
-                                <rect key="frame" x="80" y="467" width="214" height="48"/>
+                                <rect key="frame" x="80" y="418" width="214" height="48"/>
                                 <color key="backgroundColor" red="0.23921568627450981" green="0.72941176470588232" blue="0.69411764705882351" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="48" id="HJz-ld-znQ"/>
+                                    <constraint firstAttribute="height" constant="48" id="926-5g-8wy"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
                                 <state key="normal" title="Buy">
@@ -1253,11 +1252,11 @@ Any redistribution or reproduction of part or all of the contents in any form is
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="aPU-Mn-Ium">
                                 <rect key="frame" x="0.0" y="88" width="375" height="203"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="203" id="ewQ-7x-l4J"/>
+                                    <constraint firstAttribute="height" constant="203" id="9q8-Zi-nUO"/>
                                 </constraints>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NbQ-Em-YvE">
-                                <rect key="frame" x="0.0" y="299" width="375" height="1"/>
+                                <rect key="frame" x="0.0" y="299" width="375" height="0.0"/>
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WX0-tC-VwI">
@@ -1281,25 +1280,25 @@ Any redistribution or reproduction of part or all of the contents in any form is
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="aPU-Mn-Ium" firstAttribute="top" secondItem="HaC-9D-WOK" secondAttribute="top" id="0zA-HP-ody"/>
-                            <constraint firstItem="PBG-XP-4P6" firstAttribute="trailing" secondItem="WX0-tC-VwI" secondAttribute="trailing" id="1UW-d7-L1r"/>
-                            <constraint firstItem="PBG-XP-4P6" firstAttribute="top" secondItem="NbQ-Em-YvE" secondAttribute="bottom" constant="22" id="3z2-fz-PbI"/>
-                            <constraint firstItem="aPU-Mn-Ium" firstAttribute="trailing" secondItem="NbQ-Em-YvE" secondAttribute="trailing" id="8xB-TL-KaF"/>
-                            <constraint firstItem="WX0-tC-VwI" firstAttribute="leading" secondItem="Bao-HH-V6E" secondAttribute="leading" id="9jq-wc-MF7"/>
-                            <constraint firstItem="WX0-tC-VwI" firstAttribute="top" secondItem="PBG-XP-4P6" secondAttribute="bottom" constant="8" symbolic="YES" id="AjW-IQ-Vvu"/>
-                            <constraint firstItem="WX0-tC-VwI" firstAttribute="trailing" secondItem="Bao-HH-V6E" secondAttribute="trailing" id="BIF-JY-SVz"/>
-                            <constraint firstItem="pxr-EE-cz1" firstAttribute="top" secondItem="Bao-HH-V6E" secondAttribute="bottom" constant="66" id="BK9-1K-jZo"/>
-                            <constraint firstItem="HaC-9D-WOK" firstAttribute="bottom" secondItem="pxr-EE-cz1" secondAttribute="bottom" constant="263" id="HgJ-Wz-Emv"/>
-                            <constraint firstItem="NbQ-Em-YvE" firstAttribute="top" secondItem="aPU-Mn-Ium" secondAttribute="bottom" constant="8" symbolic="YES" id="Kux-n1-Qdl"/>
-                            <constraint firstItem="Bao-HH-V6E" firstAttribute="top" secondItem="WX0-tC-VwI" secondAttribute="bottom" constant="8" symbolic="YES" id="MM4-x5-Hl4"/>
-                            <constraint firstItem="PBG-XP-4P6" firstAttribute="leading" secondItem="Lj9-hY-IHb" secondAttribute="leadingMargin" id="Nrv-tZ-jsQ"/>
-                            <constraint firstItem="aPU-Mn-Ium" firstAttribute="leading" secondItem="Lj9-hY-IHb" secondAttribute="leading" id="QKy-nU-WJx"/>
-                            <constraint firstItem="PBG-XP-4P6" firstAttribute="leading" secondItem="WX0-tC-VwI" secondAttribute="leading" id="RaI-6F-Y56"/>
-                            <constraint firstItem="aPU-Mn-Ium" firstAttribute="leading" secondItem="NbQ-Em-YvE" secondAttribute="leading" id="SEo-jO-Mtk"/>
-                            <constraint firstItem="pxr-EE-cz1" firstAttribute="leading" secondItem="HaC-9D-WOK" secondAttribute="leading" constant="80" id="Sla-gV-Kf8"/>
-                            <constraint firstItem="NbQ-Em-YvE" firstAttribute="centerX" secondItem="PBG-XP-4P6" secondAttribute="centerX" id="Svj-4M-W1Z"/>
-                            <constraint firstAttribute="trailing" secondItem="aPU-Mn-Ium" secondAttribute="trailing" id="cNm-jc-sBX"/>
-                            <constraint firstItem="Bao-HH-V6E" firstAttribute="centerX" secondItem="pxr-EE-cz1" secondAttribute="centerX" id="g75-og-RdN"/>
+                            <constraint firstAttribute="trailing" secondItem="aPU-Mn-Ium" secondAttribute="trailing" id="1as-SX-zVq"/>
+                            <constraint firstItem="aPU-Mn-Ium" firstAttribute="trailing" secondItem="NbQ-Em-YvE" secondAttribute="trailing" id="AA8-eU-I4H"/>
+                            <constraint firstItem="pxr-EE-cz1" firstAttribute="leading" secondItem="HaC-9D-WOK" secondAttribute="leading" constant="80" id="AQL-b8-MxQ"/>
+                            <constraint firstItem="WX0-tC-VwI" firstAttribute="leading" secondItem="Bao-HH-V6E" secondAttribute="leading" id="G5m-fr-eoj"/>
+                            <constraint firstItem="NbQ-Em-YvE" firstAttribute="centerX" secondItem="PBG-XP-4P6" secondAttribute="centerX" id="K71-Ht-pMX"/>
+                            <constraint firstItem="Bao-HH-V6E" firstAttribute="top" secondItem="WX0-tC-VwI" secondAttribute="bottom" constant="8" symbolic="YES" id="M2R-m7-LMS"/>
+                            <constraint firstItem="pxr-EE-cz1" firstAttribute="top" secondItem="Bao-HH-V6E" secondAttribute="bottom" constant="17" id="OfO-0x-CMj"/>
+                            <constraint firstItem="PBG-XP-4P6" firstAttribute="leading" secondItem="Lj9-hY-IHb" secondAttribute="leadingMargin" id="Q9S-xG-8j4"/>
+                            <constraint firstItem="PBG-XP-4P6" firstAttribute="trailing" secondItem="WX0-tC-VwI" secondAttribute="trailing" id="QNy-0k-dmC"/>
+                            <constraint firstItem="aPU-Mn-Ium" firstAttribute="leading" secondItem="NbQ-Em-YvE" secondAttribute="leading" id="S7F-Lk-ovU"/>
+                            <constraint firstItem="NbQ-Em-YvE" firstAttribute="top" secondItem="aPU-Mn-Ium" secondAttribute="bottom" constant="8" symbolic="YES" id="Sx7-uS-db6"/>
+                            <constraint firstItem="aPU-Mn-Ium" firstAttribute="top" secondItem="HaC-9D-WOK" secondAttribute="top" id="TUl-zu-1Q0"/>
+                            <constraint firstItem="aPU-Mn-Ium" firstAttribute="leading" secondItem="Lj9-hY-IHb" secondAttribute="leading" id="UXj-uJ-g48"/>
+                            <constraint firstItem="WX0-tC-VwI" firstAttribute="top" secondItem="PBG-XP-4P6" secondAttribute="bottom" constant="8" symbolic="YES" id="a4e-wu-dcq"/>
+                            <constraint firstItem="PBG-XP-4P6" firstAttribute="top" secondItem="NbQ-Em-YvE" secondAttribute="bottom" constant="23" id="k9z-rN-Ccm"/>
+                            <constraint firstItem="WX0-tC-VwI" firstAttribute="trailing" secondItem="Bao-HH-V6E" secondAttribute="trailing" id="ntg-5W-h8C"/>
+                            <constraint firstItem="PBG-XP-4P6" firstAttribute="leading" secondItem="WX0-tC-VwI" secondAttribute="leading" id="oS3-Rx-mIa"/>
+                            <constraint firstItem="pxr-EE-cz1" firstAttribute="top" secondItem="Lj9-hY-IHb" secondAttribute="topMargin" constant="330" id="pzf-E8-0k4"/>
+                            <constraint firstItem="Bao-HH-V6E" firstAttribute="centerX" secondItem="pxr-EE-cz1" secondAttribute="centerX" id="vsN-0P-IjJ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="HaC-9D-WOK"/>
                     </view>
@@ -1312,7 +1311,7 @@ Any redistribution or reproduction of part or all of the contents in any form is
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uw2-GF-ngF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="8349.6000000000004" y="2092.6108374384239"/>
+            <point key="canvasLocation" x="9292" y="2092.6108374384239"/>
         </scene>
         <!--Purchase Confirmation View Controller-->
         <scene sceneID="zLX-Tn-Epe">
@@ -1323,7 +1322,7 @@ Any redistribution or reproduction of part or all of the contents in any form is
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Hj-75-1Ad">
-                                <rect key="frame" x="16" y="120" width="343" height="185"/>
+                                <rect key="frame" x="16" y="120" width="343" height="274"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.214903236" green="0.214903236" blue="0.214903236" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -1331,10 +1330,10 @@ Any redistribution or reproduction of part or all of the contents in any form is
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="1Hj-75-1Ad" firstAttribute="top" secondItem="jLy-KH-jyM" secondAttribute="top" constant="32" id="2VI-HH-aNo"/>
-                            <constraint firstItem="1Hj-75-1Ad" firstAttribute="leading" secondItem="jLy-KH-jyM" secondAttribute="leading" constant="16" id="Bwv-Iy-u3h"/>
-                            <constraint firstItem="jLy-KH-jyM" firstAttribute="trailing" secondItem="1Hj-75-1Ad" secondAttribute="trailing" constant="16" id="VgJ-gu-qQ0"/>
-                            <constraint firstItem="jLy-KH-jyM" firstAttribute="bottom" secondItem="1Hj-75-1Ad" secondAttribute="bottom" constant="473" id="vtw-wl-ITw"/>
+                            <constraint firstItem="1Hj-75-1Ad" firstAttribute="leading" secondItem="xP0-yC-76D" secondAttribute="leadingMargin" id="8tM-HW-lXR"/>
+                            <constraint firstItem="1Hj-75-1Ad" firstAttribute="top" secondItem="jLy-KH-jyM" secondAttribute="top" constant="32" id="IEL-y2-y51"/>
+                            <constraint firstItem="jLy-KH-jyM" firstAttribute="bottom" secondItem="1Hj-75-1Ad" secondAttribute="bottom" constant="335" id="kRD-oo-Yca"/>
+                            <constraint firstItem="1Hj-75-1Ad" firstAttribute="trailing" secondItem="xP0-yC-76D" secondAttribute="trailingMargin" id="ugS-0H-gDB"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="jLy-KH-jyM"/>
                     </view>
@@ -1344,7 +1343,7 @@ Any redistribution or reproduction of part or all of the contents in any form is
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rIZ-J2-vyW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="9152.7999999999993" y="2092.6108374384239"/>
+            <point key="canvasLocation" x="10095.200000000001" y="2091.904047976012"/>
         </scene>
         <!--Drone Livestream View Controller-->
         <scene sceneID="RQJ-xh-BOU">
@@ -1605,7 +1604,7 @@ Any redistribution or reproduction of part or all of the contents in any form is
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n2J-tZ-nV5">
-                                        <rect key="frame" x="208" y="887.66666666666663" width="101" height="23"/>
+                                        <rect key="frame" x="208" y="887.66666666666663" width="101" height="25"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
                                         <state key="normal" title="Weekends"/>
                                         <connections>
@@ -1613,7 +1612,7 @@ Any redistribution or reproduction of part or all of the contents in any form is
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o3G-8q-3aR">
-                                        <rect key="frame" x="119" y="888" width="81" height="24"/>
+                                        <rect key="frame" x="119" y="888.33333333333337" width="81" height="24"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="81" id="5ew-du-1Th"/>
                                         </constraints>
@@ -2262,7 +2261,7 @@ Any redistribution or reproduction of part or all of the contents in any form is
                         <segue destination="RRf-se-VAL" kind="relationship" relationship="viewControllers" id="6uk-zD-x3x"/>
                         <segue destination="hQS-dP-EhV" kind="relationship" relationship="viewControllers" id="d0h-tL-nSW"/>
                         <segue destination="B9V-NX-XBi" kind="relationship" relationship="viewControllers" id="z2l-Pg-3oz"/>
-                        <segue destination="F9p-SB-y0H" kind="relationship" relationship="viewControllers" id="9sg-2z-xCI"/>
+                        <segue destination="3pZ-Yv-A2D" kind="relationship" relationship="viewControllers" id="9sg-2z-xCI"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ftY-oF-PK9" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -2309,6 +2308,32 @@ Any redistribution or reproduction of part or all of the contents in any form is
                 <placeholder placeholderIdentifier="IBFirstResponder" id="i9W-WC-of1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="864.79999999999995" y="112.3152709359606"/>
+        </scene>
+        <!--Store-->
+        <scene sceneID="RgN-3J-8lB">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="3pZ-Yv-A2D" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Store" id="s08-SV-SmD"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="j6X-8L-ca7">
+                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="F9p-SB-y0H" kind="relationship" relationship="rootViewController" id="8U3-tK-BPF"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4lT-in-y2h" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="7380" y="2092.6108374384239"/>
         </scene>
     </scenes>
     <resources>
