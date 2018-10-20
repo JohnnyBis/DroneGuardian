@@ -8,24 +8,40 @@
 
 import UIKit
 import FirebaseAuth
-import GradientLoadingBar
 
 class HomeViewController: UIViewController{
     
-    var navigationLoadingBar: BottomGradientLoadingBar?
+    @IBOutlet var imageCollection: [UIImageView]!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        enableImageGestureRecognizer()
+
         
-        if let navigationBar = navigationController?.navigationBar {
-            navigationLoadingBar = BottomGradientLoadingBar(onView: navigationBar)
+    }
+
+    func enableImageGestureRecognizer(){
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(imageTapped(tapGestureRecognizer:)))
+        imageCollection[0].isUserInteractionEnabled = true
+        imageCollection[0].addGestureRecognizer(tapGestureRecognizer)
+        let tapGestureRecognizerTwo = UITapGestureRecognizer(target: self, action: #selector(imageTapped(tapGestureRecognizer:)))
+        imageCollection[1].isUserInteractionEnabled = true
+        imageCollection[1].addGestureRecognizer(tapGestureRecognizerTwo)
+    }
+    
+    
+    @objc func imageTapped(tapGestureRecognizer: UITapGestureRecognizer){
+        let tappedImage = tapGestureRecognizer.view as! UIImageView
+        print(tappedImage.tag)
+        if tappedImage.tag == 1{
+            pilot = true
+            
+        }else{
+            pilot = false
         }
-        
-        guard let navigationLoadingBar = navigationLoadingBar else { return }
-        let logo = UIImage(named: "droneguardy_horizontal_logo")
-        let imageView = UIImageView(image:logo)
-        imageView.contentMode = .scaleAspectFit
-        self.navigationItem.titleView = imageView
+        self.performSegue(withIdentifier: "goToInformationFromHome", sender: self)
+
+
     }
     
     
@@ -34,9 +50,6 @@ class HomeViewController: UIViewController{
         // Dispose of any resources that can be recreated.
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-       GradientLoadingBar.shared.hide()
-    }
     
 //    override func viewDidAppear(_ animated: Bool) {
 //        if Auth.auth().currentUser?.uid != nil {
@@ -44,33 +57,7 @@ class HomeViewController: UIViewController{
 //            
 //        }
 //    }
+
     
-    @IBAction func dronePilotButtonPressed(_ sender: UIButton) {
-        self.performSegue(withIdentifier: "goToInformationFromHome", sender: self)
-
-        pilot = true
-        navigationLoadingBar?.toggle()
-
-    }
     
-    @IBAction func clientButtonPressed(_ sender: UIButton) {
-        self.performSegue(withIdentifier: "goToInformationFromHome", sender: self)
-        navigationLoadingBar?.toggle()
-
-
-    }
-    
-}
-
-class BottomGradientLoadingBar: GradientLoadingBar {
-    override func setupConstraints() {
-        guard let superview = superview else { return }
-
-        NSLayoutConstraint.activate([
-            gradientView.leadingAnchor.constraint(equalTo: superview.leadingAnchor),
-            gradientView.trailingAnchor.constraint(equalTo: superview.trailingAnchor),
-            gradientView.bottomAnchor.constraint(equalTo: superview.bottomAnchor),
-            gradientView.heightAnchor.constraint(equalToConstant: CGFloat(height))
-            ])
-    }
 }

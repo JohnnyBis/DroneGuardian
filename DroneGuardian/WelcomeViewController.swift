@@ -74,7 +74,7 @@ class WelcomeViewController: UIViewController {
                 }
                 
                 if let currentUser = Auth.auth().currentUser {
-                    let userData = ["Full Name": currentUser.displayName!, "Balance": 0, "Pilot": pilot, "Address": "", "Phone": "", "Insurance": "", "Coverage": "", "Company": "", "Email": currentUser.email, "Id": uid!, "Number": "", "Miles available": "", "Weekdays": false, "Weekends": false, "Patent ID": "", "Drones": [], "License": [], "Status": "Online", "Profile Url": ""] as [String : Any]
+                    let userData = ["Full Name": currentUser.displayName!, "Balance": 0, "Pilot": pilot, "Address": "", "Phone": "", "Insurance": "", "Coverage": "", "Company": "", "Email": currentUser.email!, "Id": uid!, "Number": "", "Miles available": "", "Weekdays": false, "Weekends": false, "Patent ID": "", "Drones": [], "License": [], "Status": "Online", "Profile Url": ""] as [String : Any]
                     DataService.ds.createFirebaseDBUsers(uid: (user?.user.uid)!, userData: userData)
                 }
                 

@@ -143,9 +143,10 @@ class ShopViewController: UIViewController, UIScrollViewDelegate{
         let selectedItem = Firestore.firestore().document(reference)
         selectedItem.getDocument { (item, error) in
             if let itemData = item?.data(){
+                let price = itemData["Price"] as? String
                 let name = itemData["Name"] as? String
                 let url = itemData["Url"] as? String
-                let price = itemData["Price"] as? String
+                print(price!)
                 selectedItemName = name!
                 selectedItemImage = url!
                 selectedItemPrice = price!
