@@ -79,6 +79,7 @@ class User{
                 
                 let user = User(username: username, imageUrl: url, balance: 0, pilot: pilot, id: id, address: address, email: email, company: company, insurance: insurance, coverage: coverage, phoneNumber: phoneNumber, milesAvailable: milesAvaible, weekdays: weekdays, weekends: weekends, patentID: patentID, drones: drones, status: status, licenses: licenses)
                 
+                
                 completionBlock(user)
             }else{
                 print("User document error")
