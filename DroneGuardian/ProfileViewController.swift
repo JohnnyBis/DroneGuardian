@@ -16,8 +16,6 @@ var selectedCells: [String] = []
 var selectedLicense: [String] = []
 
 class ProfileViewController: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
-    
-
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var username: UILabel!
     @IBOutlet weak var fullName: UITextField!
@@ -42,6 +40,7 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UIImagePicke
     let imagePicker = UIImagePickerController()
     var selectedImage: UIImage!
     var pictureType: String = ""
+    var chosenLicenses: [String] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,10 +61,12 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UIImagePicke
         imagePicker.delegate = self
         imagePicker.allowsEditing = false
         imagePicker.sourceType = .photoLibrary
-        status.isSelected = true
+//        status.isSelected = true
         licenseCollectionView.delegate = self
         licenseCollectionView.dataSource = self
         licenseCollectionView.allowsSelection = true
+        status.isSelected = true
+
 //        chosenDrones.layer.borderWidth = 1
 //        chosenDrones.layer.borderColor = UIColor.orange.cgColor
 //        chosenDrones.layer.cornerRadius = 5
@@ -76,6 +77,24 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UIImagePicke
 //        profileImage.isSkeletonable = true
 //        profileImage.showAnimatedGradientSkeleton()
         fetchChosenLicense()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        User.fetchUserData(uid: uid!) { (user) in
+            
+            if user.licenses == []{
+                self.registeredLicenses.text = "No licenses registered"
+                DispatchQueue.main.async {
+                    self.licenseCollectionView.reloadData()
+                }
+            }else{
+                self.registeredLicenses.text = "Your licenses:"
+                self.chosenLicenses = user.licenses
+                DispatchQueue.main.async {
+                    self.licenseCollectionView.reloadData()
+                }
+            }
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -125,15 +144,7 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UIImagePicke
                 self.heighForLabel(label: self.chosenDrones, text: "\(user.drones)")
                 
             }
-            
-            if user.licenses == []{
-                self.registeredLicenses.text = "No licenses registered"
-            }else{
-                let list = user.licenses
-                self.registeredLicenses.text = "\(list)"
-                self.heighForLabel(label: self.registeredLicenses, text: "\(list)")
-            }
-            
+    
         }
     }
     
@@ -174,10 +185,10 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UIImagePicke
                 let user = document?.data()
                 let licenses = user!["License"] as! NSArray
                 print(licenses)
-                if licenses != []{
-                    self.registeredLicenses.text = "\(licenses)"
-                    self.heighForLabel(label: self.registeredLicenses, text: "\(licenses)")
-                }
+//                if licenses != []{
+//                    self.registeredLicenses.text = "\(licenses)"
+//                    self.heighForLabel(label: self.registeredLicenses, text: "\(licenses)")
+//                }
             }
         }
     }
@@ -207,11 +218,12 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UIImagePicke
         }
     }
     
-    @IBAction func addPictureButtonPressed(_ sender: UIButton) {
+    @IBAction func addLicensePictureButtonPressed(_ sender: UIButton) {
         present(imagePicker, animated: true, completion: nil)
         pictureType = "License Url"
         
     }
+    
     
     @IBAction func addInsurancePictureButtonPressed(_ sender: UIButton) {
         present(imagePicker, animated: true, completion: nil)
@@ -230,13 +242,17 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UIImagePicke
     }
     
     @IBAction func statusButtonPressed(_ sender: UIButton) {
+        
+        status.setTitle("Online", for: UIControlState.selected)
+        status.setTitle("Offline", for: UIControlState.normal)
+
         if status.isSelected == false{
             status.isSelected = true
-            status.titleLabel?.text = "Online"
+            
             DataService.ds.REF_USERS.document(uid!).updateData(["Status": "Online"])
         }else{
             status.isSelected = false
-            status.titleLabel?.text = "Offline"
+            
             DataService.ds.REF_USERS.document(uid!).updateData(["Status": "Offline"])
             
         }
@@ -244,24 +260,52 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UIImagePicke
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 1
+        return chosenLicenses.count
         
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        var faa107 = ""
+        var faa333 = ""
+        var tp = ""
+
         let cell = licenseCollectionView.dequeueReusableCell(withReuseIdentifier: "licenseCell", for: indexPath) as! CertificationCollectionViewCell
-//        if let url = URL(string: license){
-//            cell.licenseImage.kf.setImage(with: url)
-//
-//        }
+        cell.licenseName.text = chosenLicenses[indexPath.row]
+        DataService.ds.REF_USERS.document(uid!).getDocument { (doc, error) in
+            if error != nil{
+                print(error!)
+            }else{
+                if let document = doc{
+                    
+                    faa107 = document.data()?["107"] as! String
+                    
+                    faa333 = document.data()?["333"] as! String
+                    
+                    tp = document.data()?["TP"] as! String
+                }
+                
+                if cell.licenseName.text == "FAA Part 107 Certification"{
+                    cell.licenseImage.kf.setImage(with: URL(string: faa107))
+                    
+                }else if cell.licenseName.text == "FAA Section 333 Exemption"{
+                    cell.licenseImage.kf.setImage(with: URL(string: faa333))
+                    
+                }else{
+                    cell.licenseImage.kf.setImage(with: URL(string: tp))
+                    
+                }
+
+            }
+            self.licenseCollectionView.reloadData()
+        }
         
         return cell
     }
     
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        selectedPilotID = dronePilot[indexPath.row].userID
-        performSegue(withIdentifier: "goToSetupFromMap", sender: self)
-    }
+//    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+////        selectedPilotID = dronePilot[indexPath.row].userID
+//        performSegue(withIdentifier: "goToSetupFromMap", sender: self)
+//    }
     
     @IBAction func changePictureButtonPressed(_ sender: UIButton) {
         pictureType = "Profile Url"
@@ -282,13 +326,9 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UIImagePicke
                     DataService.ds.REF_USERS.document(uid!).updateData(["Profile Url": url!])
                 }
             }else if pictureType == "License Url"{
-                uploadImage(pickedImage, false) { (url, error) in
-                    if error != nil{
-                        print(error!)
-                        return
-                    }
-                    DataService.ds.REF_USERS.document(uid!).updateData([self.pictureType: url!])
-                }
+                newImage = pickedImage
+                performSegue(withIdentifier: "fromProfileToInsurancePicture", sender: self)                
+                
             }else{
                 uploadImage(pickedImage, false) { (url, error) in
                     if error != nil{

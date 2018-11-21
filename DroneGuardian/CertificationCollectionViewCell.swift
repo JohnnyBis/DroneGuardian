@@ -10,7 +10,8 @@ import UIKit
 
 class CertificationCollectionViewCell: UICollectionViewCell {
     
-    @IBOutlet weak var licenseImage: UIImageView!
+    @IBOutlet weak var licenseImage: UIImageView!    
+    @IBOutlet weak var licenseName: UILabel!
     
     
 }

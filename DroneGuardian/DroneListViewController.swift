@@ -10,7 +10,6 @@ import UIKit
 
 class DroneListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
     
-
     @IBOutlet weak var droneList: UITableView!
     var list = ["Autel Evo",
         "Autel X-Star Premium",
@@ -84,7 +83,8 @@ class DroneListViewController: UIViewController, UITableViewDelegate, UITableVie
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        droneList.cellForRow(at: indexPath)?.accessoryType = UITableViewCellAccessoryType.checkmark
+        
+        droneList.cellForRow(at: indexPath)?.accessoryType = UITableViewCellAccessoryType.checkmark
         
         if selectedCells.contains(list[indexPath.row]) {
             let position = selectedCells.index(of: list[indexPath.row])
@@ -93,8 +93,11 @@ class DroneListViewController: UIViewController, UITableViewDelegate, UITableVie
             selectedCells.append(list[indexPath.row])
         }
         print(selectedCells)
-        droneList.reloadData()
+//        droneList.reloadData()
+
     }
+    
+   
 
     
 }

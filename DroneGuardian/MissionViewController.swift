@@ -60,6 +60,13 @@ class MissionViewController: UIViewController, UITableViewDelegate, UITableViewD
         }
     }
     
+    func emptyStatebuttonWasTapped(button: UIButton) {
+//        fetchMissions()
+//        missionTableView.reloadData()
+//        reloadEmptyStateForTableView(missionTableView)
+        emptyStateView.isHidden = true
+    }
+    
     @objc func handleRefresh(_ refreshControl: UIRefreshControl) {
         missionList = []
         fetchMissions()

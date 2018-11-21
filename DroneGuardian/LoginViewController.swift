@@ -14,6 +14,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate{
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
     @IBOutlet weak var loginButton: UIButton!
+    @IBOutlet weak var errorMessage: UILabel!
+    @IBOutlet weak var viewOne: UIView!
+    @IBOutlet weak var viewTwo: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,6 +29,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate{
         loginButton.layer.shadowOffset = CGSize(width: 5, height: 5)
         loginButton.layer.shadowRadius = 5
         loginButton.layer.shadowOpacity = 0.5
+        errorMessage.isHidden = true
         
     }
     
@@ -43,6 +47,11 @@ class LoginViewController: UIViewController, UITextFieldDelegate{
         Auth.auth().signIn(withEmail: emailField.text!, password: passwordField.text!, completion: { (user, error) in
             if error != nil{
                 print(error!)
+                self.errorMessage.text = "Incorrect username or password."
+                self.viewOne.layer.backgroundColor = UIColor.red.cgColor
+                self.viewTwo.layer.backgroundColor = UIColor.red.cgColor
+                self.errorMessage.isHidden = false
+                
             }else{
                 self.performSegue(withIdentifier: "goToMapFromLogin", sender: self)
                 self.emailField.text = ""

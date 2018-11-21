@@ -39,8 +39,7 @@ class ShopViewController: UIViewController, UIScrollViewDelegate{
         scrollView.delegate = self
 //        addSkeletonToImage(imageCollection: categoryOneImages)
 //        addSkeletonToLabel(labelCollection: categoryOneLabels)
-        self.navigationItem.title = "Your Title"
-
+        
         fetchFirstCategory()
         fetchSecondCategory()
         fetchThirdCategory()

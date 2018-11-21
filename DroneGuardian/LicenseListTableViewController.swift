@@ -14,6 +14,7 @@ class LicenseListTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.tableView.allowsMultipleSelection = true
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -32,6 +33,7 @@ class LicenseListTableViewController: UITableViewController {
     override func viewWillDisappear(_ animated: Bool) {
         if isMovingFromParentViewController{
             DataService.ds.REF_USERS.document(uid!).setData(["License": selectedLicense], merge: true)
+            
         }
     }
 
@@ -52,8 +54,7 @@ class LicenseListTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "licenseCell", for: indexPath as IndexPath)
         
         cell.textLabel?.text = list[indexPath.row]
-        
-        cell.accessoryType = selectedLicense.contains(list[indexPath.row]) ? .checkmark: .none
+        cell.accessoryType = selectedLicense.contains(list[indexPath.row]) ? .checkmark: .checkmark
         
         return cell
     }
@@ -67,10 +68,9 @@ class LicenseListTableViewController: UITableViewController {
 
         } else {
             selectedLicense.append(list[indexPath.row])
-
         }
         print(selectedLicense)
-        tableView.reloadData()
+
     }
 
     /*
