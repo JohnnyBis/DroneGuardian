@@ -2553,7 +2553,6 @@ Any redistribution or reproduction of part or all of the contents in any form is
         <image name="store icon" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="d36-2d-Nt6"/>
         <segue reference="6Qg-3m-api"/>
         <segue reference="qKE-Od-crY"/>
         <segue reference="QVI-so-LfK"/>
