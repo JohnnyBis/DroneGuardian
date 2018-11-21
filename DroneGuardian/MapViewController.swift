@@ -35,7 +35,6 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
     
     override func viewDidLoad(){
         super.viewDidLoad()
-        
         manager.delegate = self
         manager.desiredAccuracy = kCLLocationAccuracyBest
         manager.requestWhenInUseAuthorization()
@@ -50,11 +49,24 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(MapViewController.dismissKeyboard))
         view.addGestureRecognizer(tap)
         tap.cancelsTouchesInView = false
+        fetchMissions()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         checkAccountType()
     }
+    
+    func fetchMissions(){
+        Missions.fetchUserMissions(uid: uid!) { (mission) in
+            missionList.append(mission)
+            if let tabItems = self.tabBarController?.tabBar.items {
+                let count = missionList.count
+                let tabItem = tabItems[2]
+                tabItem.badgeValue = "\(count)"
+            }
+        }
+    }
+
     
     @objc func dismissKeyboard() {
         view.endEditing(true)

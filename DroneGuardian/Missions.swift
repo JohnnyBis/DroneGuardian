@@ -24,21 +24,39 @@ class Missions{
     }
     
     static func fetchUserMissions(uid: String, completionBlock: @escaping (_ mission: Missions) -> Void){
-        DataService.ds.REF_MISSIONS.whereField("Pilot", isEqualTo: uid).getDocuments { (document, error) in
+        DataService.ds.REF_MISSIONS.whereField("Pilot", isEqualTo: uid).addSnapshotListener { (snapshot, error) in
             if error != nil{
                 print(error!)
-                return
-            }
-            for document in document!.documents {
-                let price = document["Price"] as! Int
-                let client = document["Client"] as! String
-                let livestreamUrl = document["Url"] as! String
-                let docID = document.documentID
-                let mission = Missions(client: client, price: price, livestreamUrl: livestreamUrl, docID: docID)
-                completionBlock(mission)
+            }else{
+                snapshot?.documentChanges.forEach { diff in
+                    if diff.type == .added {
+                        let document = diff.document.data()
+                        let price = document["Price"] as! Int
+                        let client = document["Client"] as! String
+                        let livestreamUrl = document["Url"] as! String
+                        let docID = diff.document.documentID
+                        let mission = Missions(client: client, price: price, livestreamUrl: livestreamUrl, docID: docID)
+                        completionBlock(mission)
+                    }
+                }
             }
         }
     }
+    
+    //        DataService.ds.REF_MISSIONS.whereField("Pilot", isEqualTo: uid).getDocuments { (document, error) in
+    //            if error != nil{
+    //                print(error!)
+    //                return
+    //            }
+    //            for document in document!.documents {
+    //                let price = document["Price"] as! Int
+    //                let client = document["Client"] as! String
+    //                let livestreamUrl = document["Url"] as! String
+    //                let docID = document.documentID
+    //                let mission = Missions(client: client, price: price, livestreamUrl: livestreamUrl, docID: docID)
+    //                completionBlock(mission)
+    //            }
+    //        }
 
 
 

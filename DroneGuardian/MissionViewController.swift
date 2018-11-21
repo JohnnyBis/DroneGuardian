@@ -11,19 +11,17 @@ import UIEmptyState
 
 var missionIndex = 0
 var documentId: String = ""
+var missionList = [Missions]()
 
 class MissionViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIEmptyStateDelegate, UIEmptyStateDataSource{
     
 
     @IBOutlet weak var missionTableView: UITableView!
     
-    var missionList = [Missions]()
-
     override func viewDidLoad() {
         super.viewDidLoad()
         missionTableView.delegate = self
         missionTableView.dataSource = self
-        fetchMissions()
         print(missionList.count)
         self.missionTableView.addSubview(self.refreshControl)
         
@@ -31,16 +29,33 @@ class MissionViewController: UIViewController, UITableViewDelegate, UITableViewD
         self.emptyStateDelegate = self
         // Remove seperator lines from empty cells
         self.missionTableView.tableFooterView = UIView(frame: CGRect.zero)
-        // Initially call the reloadTableViewState to get the initial state
-        
-        reloadEmptyStateForTableView(missionTableView)
         self.view.backgroundColor = UIColor(red: 0.518, green: 0.576, blue: 0.604, alpha: 1.00)
-        
+        missionTableView.reloadData()
+        if let tabItems = self.tabBarController?.tabBar.items {
+            let tabItem = tabItems[2]
+            tabItem.badgeValue = nil
+        }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        reloadEmptyStateForTableView(missionTableView)
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func fetchMissions(){
+        Missions.fetchUserMissions(uid: uid!) { (mission) in
+            missionList.append(mission)
+            if let tabItems = self.tabBarController?.tabBar.items {
+                let count = missionList.count
+                let tabItem = tabItems[2]
+                tabItem.badgeValue = "\(count)"
+                self.missionTableView.reloadData()
+            }
+        }
     }
     
     lazy var refreshControl: UIRefreshControl = {
@@ -50,15 +65,6 @@ class MissionViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         return refreshControl
     }()
-    
-    func fetchMissions(){
-        Missions.fetchUserMissions(uid: uid!) { (mission) in
-            self.missionList.append(mission)
-            DispatchQueue.main.async {
-                self.missionTableView.reloadData()
-            }
-        }
-    }
     
     func emptyStatebuttonWasTapped(button: UIButton) {
 //        fetchMissions()
