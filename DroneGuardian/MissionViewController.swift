@@ -49,12 +49,8 @@ class MissionViewController: UIViewController, UITableViewDelegate, UITableViewD
     func fetchMissions(){
         Missions.fetchUserMissions(uid: uid!) { (mission) in
             missionList.append(mission)
-            if let tabItems = self.tabBarController?.tabBar.items {
-                let count = missionList.count
-                let tabItem = tabItems[2]
-                tabItem.badgeValue = "\(count)"
-                self.missionTableView.reloadData()
-            }
+            self.missionTableView.reloadData()
+            self.reloadEmptyStateForTableView(self.missionTableView)
         }
     }
     
@@ -134,6 +130,4 @@ class MissionViewController: UIViewController, UITableViewDelegate, UITableViewD
         emptyView.button.layer.backgroundColor = UIColor(red:0.21, green:0.73, blue:0.70, alpha:1.0).cgColor
     }
     
-    
-
 }

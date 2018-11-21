@@ -58,5 +58,15 @@ class SignUpViewController: UIViewController, UITextFieldDelegate{
         })
         
     }
+    
+    @IBAction func checkButtonPressed(_ sender: UIButton){
+        if sender.isSelected{
+            sender.isSelected = false
+        }else{
+            sender.isSelected = true
+        }
+        
+    }
+
 
 }

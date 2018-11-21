@@ -2274,6 +2274,25 @@ Any redistribution or reproduction of part or all of the contents in any form is
                                             <constraint firstAttribute="height" constant="1" id="hAb-5n-TKv"/>
                                         </constraints>
                                     </view>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NkH-vC-cK2">
+                                        <rect key="frame" x="30" y="242" width="21" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" image="unchecked"/>
+                                        <state key="selected" image="checked"/>
+                                        <connections>
+                                            <action selector="checkButtonPressed:" destination="bAC-XF-Kcb" eventType="touchUpInside" id="804-0R-5v8"/>
+                                            <action selector="termsButtonPressed:" destination="rzF-9o-qiG" eventType="touchUpInside" id="ov7-IH-tGj"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4LE-D4-gyO">
+                                        <rect key="frame" x="30" y="267" width="21" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" image="unchecked"/>
+                                        <state key="selected" image="checked"/>
+                                        <connections>
+                                            <action selector="checkButtonPressed:" destination="bAC-XF-Kcb" eventType="touchUpInside" id="X4J-Vx-e1X"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="5k8-3L-fmu" firstAttribute="top" secondItem="bR0-L3-1jF" secondAttribute="bottom" constant="4" id="05O-Dz-aDF"/>
@@ -2332,6 +2351,7 @@ Any redistribution or reproduction of part or all of the contents in any form is
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c1e-85-a4D" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="rzF-9o-qiG" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1660" y="949.50738916256159"/>
         </scene>
@@ -2532,6 +2552,7 @@ Any redistribution or reproduction of part or all of the contents in any form is
         <image name="Shop banner 1" width="2371" height="1599"/>
         <image name="X5s" width="1000" height="1000"/>
         <image name="Zenmuse-Z30-1" width="1792" height="1500"/>
+        <image name="checked" width="128" height="128"/>
         <image name="client mission" width="750" height="542"/>
         <image name="dji-inspire-2-with-zenmuse-x5s-camera-cinemadng-and-apple-prores-inspire2x5sdngpro-dji-f83" width="806" height="537"/>
         <image name="drone pilot" width="1880" height="1402"/>
@@ -2551,10 +2572,11 @@ Any redistribution or reproduction of part or all of the contents in any form is
         <image name="pilot" width="25" height="25"/>
         <image name="resume" width="25" height="25"/>
         <image name="store icon" width="25" height="25"/>
+        <image name="unchecked" width="128" height="128"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="6Qg-3m-api"/>
+        <segue reference="nM0-o9-oYC"/>
         <segue reference="qKE-Od-crY"/>
-        <segue reference="QVI-so-LfK"/>
+        <segue reference="p4s-FI-j8m"/>
     </inferredMetricsTieBreakers>
 </document>
