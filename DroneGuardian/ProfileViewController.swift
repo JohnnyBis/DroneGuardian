@@ -265,9 +265,6 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UIImagePicke
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        var faa107 = ""
-        var faa333 = ""
-        var tp = ""
 
         let cell = licenseCollectionView.dequeueReusableCell(withReuseIdentifier: "licenseCell", for: indexPath) as! CertificationCollectionViewCell
         cell.licenseName.text = chosenLicenses[indexPath.row]
@@ -277,22 +274,30 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UIImagePicke
             }else{
                 if let document = doc{
                     
-                    faa107 = document.data()?["107"] as! String
+                    let type = document.data()
+                    guard let faa107 = type?["107"] else {
+                        print("Type not found")
+                        return
+                    }
+                    guard let faa333 =  type?["333"] else {
+                        print("Type not found")
+                        return
+                    }
+                    guard let tp =  type?["TP"] else {
+                        print("Type not found")
+                        return
+                    }
                     
-                    faa333 = document.data()?["333"] as! String
-                    
-                    tp = document.data()?["TP"] as! String
-                }
-                
-                if cell.licenseName.text == "FAA Part 107 Certification"{
-                    cell.licenseImage.kf.setImage(with: URL(string: faa107))
-                    
-                }else if cell.licenseName.text == "FAA Section 333 Exemption"{
-                    cell.licenseImage.kf.setImage(with: URL(string: faa333))
-                    
-                }else{
-                    cell.licenseImage.kf.setImage(with: URL(string: tp))
-                    
+                    if cell.licenseName.text == "FAA Part 107 Certification"{
+                        cell.licenseImage.kf.setImage(with: URL(string: faa107 as! String))
+                        
+                    }else if cell.licenseName.text == "FAA Section 333 Exemption"{
+                        cell.licenseImage.kf.setImage(with: URL(string: faa333 as! String))
+                        
+                    }else{
+                        cell.licenseImage.kf.setImage(with: URL(string: tp as! String))
+                        
+                    }
                 }
 
             }

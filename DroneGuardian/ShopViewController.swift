@@ -18,6 +18,7 @@ var selectedItemPrice: String = ""
 
 class ShopViewController: UIViewController, UIScrollViewDelegate{
 
+    @IBOutlet weak var mainImage: UIImageView!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet var categoryOneLabels: [UILabel]!
     @IBOutlet var categoryTwoLabels: [UILabel]!
@@ -44,6 +45,10 @@ class ShopViewController: UIViewController, UIScrollViewDelegate{
         fetchSecondCategory()
         fetchThirdCategory()
         fetchFourthCategory()
+        
+//        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(imageTapped(tapGestureRecognizer:)))
+//        mainImage.isUserInteractionEnabled = true
+//        mainImage.addGestureRecognizer(tapGestureRecognizer)
 
     }
 
@@ -63,6 +68,11 @@ class ShopViewController: UIViewController, UIScrollViewDelegate{
             label.showAnimatedSkeleton()
         }
     }
+    
+//    @objc func imageTapped(tapGestureRecognizer: UITapGestureRecognizer)
+//    {
+//        performSegue(withIdentifier: "goToItemFromShop", sender: self)
+//    }
     
     func fetchFirstCategory(){
         fetchItemReferences(category: "Category 1") { (itemRefs) in

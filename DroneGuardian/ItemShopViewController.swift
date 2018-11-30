@@ -12,6 +12,7 @@ import BraintreeDropIn
 import Firebase
 import Kingfisher
 
+
 class ItemShopViewController: UIViewController {
 
     @IBOutlet weak var itemName: UILabel!
@@ -20,6 +21,7 @@ class ItemShopViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {

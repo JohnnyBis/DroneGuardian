@@ -38,6 +38,7 @@ class StoreItems{
             if let items = items, items.exists{
                 let data = items.data()
                 switch categoryName{
+                    
                 case "Category 1":
                     topItemRef = data!["Top Item"] as! String
                     rightItemRef = data!["Right Item"] as! String

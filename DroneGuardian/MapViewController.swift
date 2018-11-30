@@ -50,6 +50,12 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
         view.addGestureRecognizer(tap)
         tap.cancelsTouchesInView = false
         fetchMissions()
+        
+        if pilot == false{
+            tabBarController?.viewControllers?.remove(at: 3)
+            
+        }
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
