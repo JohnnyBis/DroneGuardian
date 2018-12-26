@@ -8,6 +8,7 @@ target 'DroneGuardian' do
   # Pods for DroneGuardian
     pod 'Firebase/Core'
     pod 'Firebase/Firestore'
+    pod 'Firebase/Messaging'
     pod 'Geofirestore'
     pod 'Firebase/Auth'
     pod 'Firebase/Storage'

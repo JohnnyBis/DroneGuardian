@@ -55,6 +55,9 @@ PODS:
   - Firebase/Firestore (5.4.1):
     - Firebase/CoreOnly
     - FirebaseFirestore (= 0.12.6)
+  - Firebase/Messaging (5.4.1):
+    - Firebase/CoreOnly
+    - FirebaseMessaging (= 3.0.3)
   - Firebase/Storage (5.4.1):
     - Firebase/CoreOnly
     - FirebaseStorage (= 3.0.0)
@@ -86,6 +89,11 @@ PODS:
     - Protobuf (~> 3.1)
   - FirebaseInstanceID (3.1.1):
     - FirebaseCore (~> 5.0)
+  - FirebaseMessaging (3.0.3):
+    - FirebaseCore (~> 5.0)
+    - FirebaseInstanceID (~> 3.0)
+    - GoogleToolboxForMac/Logger (~> 2.1)
+    - Protobuf (~> 3.1)
   - FirebaseStorage (3.0.0):
     - FirebaseCore (~> 5.0)
     - GTMSessionFetcher/Core (~> 1.1)
@@ -104,6 +112,8 @@ PODS:
   - GooglePlaces (2.7.0):
     - GoogleMaps/Base (= 2.7.0)
   - GoogleToolboxForMac/Defines (2.1.4)
+  - GoogleToolboxForMac/Logger (2.1.4):
+    - GoogleToolboxForMac/Defines (= 2.1.4)
   - "GoogleToolboxForMac/NSData+zlib (2.1.4)":
     - GoogleToolboxForMac/Defines (= 2.1.4)
   - GradientLoadingBar (1.1.11)
@@ -151,6 +161,7 @@ DEPENDENCIES:
   - Firebase/Auth
   - Firebase/Core
   - Firebase/Firestore
+  - Firebase/Messaging
   - Firebase/Storage
   - Geofirestore
   - GoogleMaps
@@ -180,6 +191,7 @@ SPEC REPOS:
     - FirebaseDatabase
     - FirebaseFirestore
     - FirebaseInstanceID
+    - FirebaseMessaging
     - FirebaseStorage
     - GeoFire
     - Geofirestore
@@ -218,6 +230,7 @@ SPEC CHECKSUMS:
   FirebaseDatabase: 27be5ac5bc75e0b17537b2bbfada8258addcc8cd
   FirebaseFirestore: d4a3a7787624e612298a320da95935b8dc036c1d
   FirebaseInstanceID: f3f0657372592ecdfdfe2cac604a5a75758376a6
+  FirebaseMessaging: f43eb0c0e1da096e659de6f713038e74862a62cd
   FirebaseStorage: 7ca4bb7b58a25fa647b04f524033fc7cb7eb272b
   GeoFire: e3ae6f4be3f2466c3467ef6c1c203db3af935c59
   Geofirestore: ad548ea5e3c1ae595c746c7b796df5534d8202f3
@@ -238,6 +251,6 @@ SPEC CHECKSUMS:
   UIEmptyState: cc6ff21e9f1a42e5795bd6b08dcaa1f5ec61d33c
   YouTubePlayer: 028451f6772f372d4759866db99824c676ac1473
 
-PODFILE CHECKSUM: 7a6ab9f38b6a5a5c08c565419ac89acd7aa34f70
+PODFILE CHECKSUM: e929ea91399d42d1ac3536fa264ad31cbc8b8a2c
 
 COCOAPODS: 1.5.3

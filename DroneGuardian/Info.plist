@@ -26,6 +26,14 @@
 				<string>fb1963989030328530</string>
 			</array>
 		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>com.googleusercontent.apps.420917150895-vsqsm9vn09o985m3195i77d7i11plk4d</string>
+			</array>
+		</dict>
 	</array>
 	<key>CFBundleVersion</key>
 	<string>1</string>
@@ -53,6 +61,11 @@
 	<string>Do you allow this app to access your current location?</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>Allow DroneGuardy to access your photo library.</string>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>fetch</string>
+		<string>remote-notification</string>
+	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>

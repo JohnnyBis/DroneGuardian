@@ -1,8 +1,27 @@
 const functions = require('firebase-functions');
+const admin = require('firebase-admin');
+admin.initializeApp();
 
-// // Create and Deploy Your First Cloud Functions
-// // https://firebase.google.com/docs/functions/write-firebase-functions
-//
-// exports.helloWorld = functions.https.onRequest((request, response) => {
-//  response.send("Hello from Firebase!");
-// });
+exports.sendMissionNotification = functions.firestore.document("Missions/{mission}").onCreate((docSnap, context)=> {
+
+    const pilotUid = docSnap.data()['Pilot'];
+    console.log(pilotUid);
+
+    return admin.firestore().doc('Users/' + pilotUid).get().then(pilotDoc => {
+      const token = pilotDoc.get("Token");
+      console.log(token);
+
+      const payload = {
+        notification: {
+          title: "New mission!",
+          body: "You have a new mission from a client. Open the app now.",
+          icon: "default",
+          sound : "default"
+        }
+      }
+
+      return admin.messaging().sendToDevice(token, payload).then(response => {
+        console.log(response.results[0].error);
+      })
+    })
+})

@@ -296,6 +296,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
         }
         mapKit.addAnnotation(annotation)
     }
+
     
 //    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
 //        let annotationView = MKAnnotationView(annotation: pin, reuseIdentifier: "dronePin")
