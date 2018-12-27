@@ -55,6 +55,10 @@ class User{
         self.licenses = licenses
     }
     
+    init(licenses: Array<String>){
+        self.licenses = licenses
+    }
+    
     static func fetchUserData(uid: String, completionBlock: @escaping (_ user: User) -> Void){
         DataService.ds.REF_USERS.document(uid).getDocument { (document, error) in
             if let document = document, document.exists{
@@ -82,9 +86,23 @@ class User{
                 
                 completionBlock(user)
             }else{
-                print("User document error")
+                print("User document error.")
             }
         }
+    }
+    
+    
+    static func fetchUserLicenses(uid: String, completionBlock: @escaping (_ licenses: Array<String>) -> Void){
+        DataService.ds.REF_USERS.document(uid).getDocument { (document, error) in
+            if let document = document, document.exists{
+                let data = document.data()
+                let licenses = (data!["License"]) as! Array<String>
+                completionBlock(licenses)
+            }else{
+                print("User document error.")
+            }
+        }
+        
     }
     
 }

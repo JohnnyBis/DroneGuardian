@@ -1,5 +1,6 @@
 {
   "projects": {
-    "default": "drone-guardian"
+    "default": "drone-guardian",
+    "development": "drone-guardy"
   }
 }

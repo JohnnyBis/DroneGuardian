@@ -41,7 +41,6 @@ class HomeViewController: UIViewController{
         }
         self.performSegue(withIdentifier: "goToInformationFromHome", sender: self)
 
-
     }
     
     
@@ -57,7 +56,5 @@ class HomeViewController: UIViewController{
 //            
 //        }
 //    }
-
-    
     
 }

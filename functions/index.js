@@ -2,7 +2,7 @@ const functions = require('firebase-functions');
 const admin = require('firebase-admin');
 admin.initializeApp();
 
-exports.sendMissionNotification = functions.firestore.document("Missions/{mission}").onCreate((docSnap, context)=> {
+exports.sendMissionNotification = functions.firestore.document("Missions/{mission}").onCreate((docSnap, context) => {
 
     const pilotUid = docSnap.data()['Pilot'];
     console.log(pilotUid);
@@ -21,7 +21,7 @@ exports.sendMissionNotification = functions.firestore.document("Missions/{missio
       }
 
       return admin.messaging().sendToDevice(token, payload).then(response => {
-        console.log(response.results[0].error);
+        return console.log(response.results[0].error);
       })
     })
 })

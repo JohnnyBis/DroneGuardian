@@ -32,7 +32,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate{
         errorMessage.isHidden = true
         
     }
-    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

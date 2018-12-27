@@ -44,8 +44,12 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UIImagePicke
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        fetchUserData()
+        
         profileImage.layer.cornerRadius = profileImage.frame.height/2
         profileImage.clipsToBounds = true
+        
         fullName.delegate = self
         email.delegate = self
         address.delegate = self
@@ -55,9 +59,10 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UIImagePicke
         coverage.delegate = self
         milesAvailability.delegate = self
         idNumber.delegate = self
+        
         chosenDrones.text = "My drone model"
-        fetchUserData()
         scrollView.keyboardDismissMode = .onDrag
+        
         imagePicker.delegate = self
         imagePicker.allowsEditing = false
         imagePicker.sourceType = .photoLibrary
@@ -65,43 +70,36 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UIImagePicke
         licenseCollectionView.delegate = self
         licenseCollectionView.dataSource = self
         licenseCollectionView.allowsSelection = true
+        
         status.isSelected = true
-
-//        chosenDrones.layer.borderWidth = 1
-//        chosenDrones.layer.borderColor = UIColor.orange.cgColor
-//        chosenDrones.layer.cornerRadius = 5
     }
 
     override func viewDidAppear(_ animated: Bool) {
+        //  profileImage.isSkeletonable = true
+        //  profileImage.showAnimatedGradientSkeleton()
         fetchChosenDrones()
-//        profileImage.isSkeletonable = true
-//        profileImage.showAnimatedGradientSkeleton()
         fetchChosenLicense()
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        User.fetchUserData(uid: uid!) { (user) in
-            
-            if user.licenses == []{
-                self.registeredLicenses.text = "No licenses registered"
-                DispatchQueue.main.async {
-                    self.licenseCollectionView.reloadData()
-                }
-            }else{
-                self.registeredLicenses.text = "Your licenses:"
-                self.chosenLicenses = user.licenses
-                DispatchQueue.main.async {
-                    self.licenseCollectionView.reloadData()
-                }
-            }
-        }
+        fetchUserLicenses()
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        DataService.ds.REF_USERS.document(uid!).updateData(["Full Name":fullName.text!, "Email":email.text!, "Address":address.text!, "Phone":phoneNumber.text!, "Company":companyName.text!, "Insurance":insuranceNumber.text!, "Coverage":coverage.text!, "Miles available": milesAvailability.text!, "Patent ID": idNumber.text!])
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
+    func heighForLabel(label: UILabel, text: String){
+        label.lineBreakMode = NSLineBreakMode.byWordWrapping
+        label.text = text
+        label.sizeToFit()
+    }
+    
     func fetchUserData(){
         User.fetchUserData(uid: uid!) { (user) in
             let url = user.imageUrl
@@ -148,15 +146,21 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UIImagePicke
         }
     }
     
-    func heighForLabel(label: UILabel, text: String){
-        label.lineBreakMode = NSLineBreakMode.byWordWrapping
-        label.text = text
-        label.sizeToFit()
-    }
-    
-    
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        DataService.ds.REF_USERS.document(uid!).updateData(["Full Name":fullName.text!, "Email":email.text!, "Address":address.text!, "Phone":phoneNumber.text!, "Company":companyName.text!, "Insurance":insuranceNumber.text!, "Coverage":coverage.text!, "Miles available": milesAvailability.text!, "Patent ID": idNumber.text!])
+    func fetchUserLicenses(){
+        User.fetchUserLicenses(uid: uid!) { (licenses) in
+            if licenses == []{
+                self.registeredLicenses.text = "No licenses registered"
+                DispatchQueue.main.async {
+                    self.licenseCollectionView.reloadData()
+                }
+            }else{
+                self.registeredLicenses.text = "Your licenses:"
+                self.chosenLicenses = licenses
+                DispatchQueue.main.async {
+                    self.licenseCollectionView.reloadData()
+                }
+            }
+        }
     }
     
     func fetchChosenDrones(){
@@ -204,7 +208,6 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UIImagePicke
 
         }
         
-        
     }
     
     @IBAction func weekendsButtonPressed(_ sender: UIButton) {
@@ -223,7 +226,6 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UIImagePicke
         pictureType = "License Url"
         
     }
-    
     
     @IBAction func addInsurancePictureButtonPressed(_ sender: UIButton) {
         present(imagePicker, animated: true, completion: nil)
@@ -248,11 +250,10 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UIImagePicke
 
         if status.isSelected == false{
             status.isSelected = true
-            
             DataService.ds.REF_USERS.document(uid!).updateData(["Status": "Online"])
+            
         }else{
             status.isSelected = false
-            
             DataService.ds.REF_USERS.document(uid!).updateData(["Status": "Offline"])
             
         }
@@ -271,35 +272,34 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UIImagePicke
         DataService.ds.REF_USERS.document(uid!).getDocument { (doc, error) in
             if error != nil{
                 print(error!)
-            }else{
-                if let document = doc{
-                    
-                    let type = document.data()
-                    guard let faa107 = type?["107"] else {
-                        print("Type not found")
-                        return
-                    }
-                    guard let faa333 =  type?["333"] else {
-                        print("Type not found")
-                        return
-                    }
-                    guard let tp =  type?["TP"] else {
-                        print("Type not found")
-                        return
-                    }
-                    
-                    if cell.licenseName.text == "FAA Part 107 Certification"{
-                        cell.licenseImage.kf.setImage(with: URL(string: faa107 as! String))
-                        
-                    }else if cell.licenseName.text == "FAA Section 333 Exemption"{
-                        cell.licenseImage.kf.setImage(with: URL(string: faa333 as! String))
-                        
-                    }else{
-                        cell.licenseImage.kf.setImage(with: URL(string: tp as! String))
-                        
-                    }
+                return
+            }
+            if let document = doc{
+                
+                let type = document.data()
+                guard let faa107 = type?["107"] else {
+                    print("Type not found")
+                    return
                 }
-
+                guard let faa333 =  type?["333"] else {
+                    print("Type not found")
+                    return
+                }
+                guard let tp =  type?["TP"] else {
+                    print("Type not found")
+                    return
+                }
+                
+                if cell.licenseName.text == "FAA Part 107 Certification"{
+                    cell.licenseImage.kf.setImage(with: URL(string: faa107 as! String))
+                    
+                }else if cell.licenseName.text == "FAA Section 333 Exemption"{
+                    cell.licenseImage.kf.setImage(with: URL(string: faa333 as! String))
+                    
+                }else{
+                    cell.licenseImage.kf.setImage(with: URL(string: tp as! String))
+                    
+                }
             }
             self.licenseCollectionView.reloadData()
         }

@@ -7,34 +7,34 @@
 	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
 	<string>ca-app-pub-3940256099942544/4411468910</string>
 	<key>CLIENT_ID</key>
-	<string>420917150895-vsqsm9vn09o985m3195i77d7i11plk4d.apps.googleusercontent.com</string>
+	<string>610647176316-eq86nieqd0cikhkhlcj7ujn7sdptvc4v.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.420917150895-vsqsm9vn09o985m3195i77d7i11plk4d</string>
+	<string>com.googleusercontent.apps.610647176316-eq86nieqd0cikhkhlcj7ujn7sdptvc4v</string>
 	<key>API_KEY</key>
-	<string>AIzaSyBo5HsyNNwTHIPqHTzQVZqAsZvE32nQI04</string>
+	<string>AIzaSyDEwlAYtKQS129F2qiROAJ3pNuUHDNQtpU</string>
 	<key>GCM_SENDER_ID</key>
-	<string>420917150895</string>
+	<string>610647176316</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
 	<string>DroneGuardy.JohnBiselli</string>
 	<key>PROJECT_ID</key>
-	<string>drone-guardian</string>
+	<string>drone-guardy</string>
 	<key>STORAGE_BUCKET</key>
-	<string>drone-guardian.appspot.com</string>
+	<string>drone-guardy.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
-	<true/>
+	<true></true>
 	<key>IS_ANALYTICS_ENABLED</key>
-	<false/>
+	<false></false>
 	<key>IS_APPINVITE_ENABLED</key>
-	<false/>
+	<false></false>
 	<key>IS_GCM_ENABLED</key>
-	<true/>
+	<true></true>
 	<key>IS_SIGNIN_ENABLED</key>
-	<true/>
+	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:420917150895:ios:0543713070e8f896</string>
+	<string>1:610647176316:ios:43be47134eff0cad</string>
 	<key>DATABASE_URL</key>
-	<string>https://drone-guardian.firebaseio.com</string>
+	<string>https://drone-guardy.firebaseio.com</string>
 </dict>
 </plist>

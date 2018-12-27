@@ -54,7 +54,11 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
         if pilot == false{
             tabBarController?.viewControllers?.remove(at: 3)
             
+        }else{
+            DataService.ds.REF_USERS.document(uid!).setData(["Token" : newFcmToken], merge: true)
+            
         }
+    
 
     }
     

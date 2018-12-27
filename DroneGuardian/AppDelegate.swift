@@ -14,6 +14,8 @@ import GooglePlaces
 import FBSDKCoreKit
 import UserNotifications
 
+var newFcmToken: String = ""
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate, UNUserNotificationCenterDelegate{
 
@@ -23,8 +25,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate, UNUser
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         FirebaseApp.configure()
-        GMSServices.provideAPIKey("test")
-        GMSPlacesClient.provideAPIKey("test")
+        GMSServices.provideAPIKey("AIzaSyDEwlAYtKQS129F2qiROAJ3pNuUHDNQtpU")
+        GMSPlacesClient.provideAPIKey("AIzaSyDEwlAYtKQS129F2qiROAJ3pNuUHDNQtpU")
         
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
         
@@ -51,8 +53,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate, UNUser
     
     func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String) {
         print("Firebase registration token: \(fcmToken)")
-        
-        DataService.ds.REF_USERS.document("qjjfz4L5LBU64ZA60mz5vAKrC4r2").setData(["Token" : fcmToken], merge: true)
+        newFcmToken = fcmToken
     }
     
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {

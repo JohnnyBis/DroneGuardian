@@ -1286,7 +1286,7 @@ Any redistribution or reproduction of part or all of the contents in any form is
         <scene sceneID="ph4-e1-w9V">
             <objects>
                 <viewController id="rBo-Tf-bBH" customClass="ItemShopViewController" customModule="DroneGuardian" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Lj9-hY-IHb">
+                    <view key="view" contentMode="scaleToFill" ambiguous="YES" id="Lj9-hY-IHb">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -1325,7 +1325,7 @@ Any redistribution or reproduction of part or all of the contents in any form is
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pxr-EE-cz1">
-                                <rect key="frame" x="80" y="499" width="214" height="48"/>
+                                <rect key="frame" x="80.000000000000028" y="499" width="213.99999999999997" height="48"/>
                                 <color key="backgroundColor" red="0.23921568627450981" green="0.72941176470588232" blue="0.69411764705882351" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="48" id="Ok4-st-7fs"/>
